@@ -225,6 +225,24 @@ section {
 }
 .stat-label { font-size: 0.85rem; color: var(--text-muted); }
 
+/* ── About + Experience two-column layout ────────────────────────────── */
+.about-experience-row {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.about-experience-row section {
+  padding: 6rem 3rem;
+  max-width: none; margin: 0;
+}
+.about-experience-row section:first-child {
+  border-right: 1px solid var(--border);
+  padding-left: 2rem;
+}
+.about-experience-row section:last-child {
+  padding-right: 2rem;
+}
+
 /* ── Experience ──────────────────────────────────────────────────────── */
 .timeline { position: relative; }
 .timeline::before {
@@ -280,10 +298,14 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 12px 40px var(--accent-glow);
 }
-.project-icon {
-  font-size: 1.8rem; margin-bottom: 1rem;
-  display: block;
+.project-img {
+  width: calc(100% + 4rem); margin: -2rem -2rem 1.5rem -2rem;
+  height: 180px; object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.4s ease;
 }
+.project-card:hover .project-img { transform: scale(1.03); }
+.project-card { overflow: hidden; }
 .project-card h3 {
   font-size: 1.15rem; font-weight: 600;
   color: var(--heading); margin-bottom: 0.5rem;
@@ -436,6 +458,11 @@ footer {
 }
 
 /* ── Mobile ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-experience-row { grid-template-columns: 1fr; }
+  .about-experience-row section:first-child { border-right: none; border-bottom: 1px solid var(--border); padding: 4rem 1.5rem; }
+  .about-experience-row section:last-child { padding: 4rem 1.5rem; }
+}
 @media (max-width: 768px) {
   nav .nav-links { gap: 1rem; }
   nav .nav-links a { font-size: 0.75rem; }
@@ -493,6 +520,9 @@ footer {
   </div>
 </header>
 
+<!-- ── About + Experience side by side ───────────────────────────── -->
+<div class="about-experience-row">
+
 <!-- ── About ──────────────────────────────────────────────────────── -->
 <section id="about">
   <span class="section-label">About</span>
@@ -544,7 +574,7 @@ footer {
 </section>
 
 <!-- ── Experience ─────────────────────────────────────────────────── -->
-<section id="experience">
+<section id="experience" style="padding-top: 6rem;">
   <span class="section-label">Experience</span>
   <h2 class="section-title">Where I've Worked</h2>
   <div class="divider"></div>
@@ -558,17 +588,6 @@ footer {
         Leading GIS department delivering client solutions across the full project lifecycle.
         Agentic AI for GIS, system implementation, web mapping apps, data management,
         cartography, needs assessments, and client training. Previously full-time (Jan 2019–Jun 2021).
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dates">Jul 2014 — Jan 2020</div>
-      <div class="timeline-role">Expedition Lead / Logistician</div>
-      <div class="timeline-org">Team Panamera · Kirkland, WA</div>
-      <div class="timeline-desc">
-        Planning, logistics, navigation, and cartography for long-distance remote adventure drives.
-        Diamond Dust Rally to Nunavut (2018), Arctic Adventure Drive to Tuktoyaktuk (2016),
-        Lost Coast Drive from Neah Bay to rural Belize (2016).
       </div>
     </div>
 
@@ -595,17 +614,20 @@ footer {
     </div>
 
     <div class="timeline-item">
-      <div class="timeline-dates">Oct 2009 — Dec 2014</div>
-      <div class="timeline-role">GIS Consultant</div>
-      <div class="timeline-org">Geospatial Solutions · Self-employed · Kirkland, WA</div>
+      <div class="timeline-dates">2008 — 2012</div>
+      <div class="timeline-role">GIS Specialist</div>
+      <div class="timeline-org">Bureau of Land Management · Vale, OR</div>
       <div class="timeline-desc">
-        Independent consulting in GIS implementation, data collection and analysis, georeferencing,
-        and cartography. Clients in natural resource management, planetary cartography, and social causes.
+        GIS support for federal land management operations in the Vale District. Data management,
+        cartography, spatial analysis, and field data collection in support of resource management
+        and land use planning.
       </div>
     </div>
 
   </div>
 </section>
+
+</div><!-- end about-experience-row -->
 
 <!-- ── Projects ───────────────────────────────────────────────────── -->
 <section id="projects">
@@ -619,7 +641,7 @@ footer {
   <div class="projects-grid fade-in">
 
     <div class="project-card">
-      <span class="project-icon">🌉</span>
+      <img class="project-img" src="https://drawbridgegis.com/og-image.png" alt="DrawBridge" loading="lazy" onerror="this.style.background='var(--bg-card)';this.style.height='60px'">
       <div class="project-type">GIS Product</div>
       <h3>DrawBridge</h3>
       <p>
@@ -631,7 +653,7 @@ footer {
     </div>
 
     <div class="project-card">
-      <span class="project-icon">⚡</span>
+      <img class="project-img" src="https://nodeapi.ai/og-image.png" alt="Node API" loading="lazy" onerror="this.style.background='var(--accent-dim)';this.style.height='60px'">
       <div class="project-type">API / Developer Tool</div>
       <h3>Node API</h3>
       <p>
@@ -643,7 +665,7 @@ footer {
     </div>
 
     <div class="project-card">
-      <span class="project-icon">🔴</span>
+      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/5fcc4b6dc190381d6d591991/1644118641581-3AK7W4VGQY5K0Q2CV4OX/unsplash-image-RpDA3uYkJWM.jpg" alt="RedMapper" loading="lazy">
       <div class="project-type">Planetary Cartography</div>
       <h3>RedMapper</h3>
       <p>
@@ -655,7 +677,7 @@ footer {
     </div>
 
     <div class="project-card">
-      <span class="project-icon">🏔️</span>
+      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/58f2e40f8419c273493308c8/1496349193714-Z2VATSOKMT9RHGD2B227/BackgroundPhoto1.JPG?format=1500w" alt="Team Panamera" loading="lazy">
       <div class="project-type">Expedition / Adventure</div>
       <h3>Team Panamera</h3>
       <p>
@@ -667,7 +689,7 @@ footer {
     </div>
 
     <div class="project-card">
-      <span class="project-icon">🏞️</span>
+      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/58f2e40f8419c273493308c8/1504673943505-XCUVBTZL9Z0NX8STN7TQ/IMG_0232+%281%29.JPG?format=2500w" alt="Pacific Northwest landscape" loading="lazy">
       <div class="project-type">Field Mapping</div>
       <h3>Mapping Lake Crescent</h3>
       <p>
@@ -678,7 +700,7 @@ footer {
     </div>
 
     <div class="project-card">
-      <span class="project-icon">📐</span>
+      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/5fcc4b6dc190381d6d591991/1644115187092-MYJPZL1RTFYPMQ6Z42MN/F-8.png" alt="Planetary map" loading="lazy">
       <div class="project-type">GIS Analysis</div>
       <h3>Sea Level Rise — Makah U&amp;A</h3>
       <p>
@@ -750,6 +772,23 @@ footer {
         A comprehensive atlas of Martian places and topography, co-developed with an interactive Mars web map.
         Over 2,000 named features including mountains, craters, valleys, and plains rendered in elevation relief
         with topographic lines.
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title">The Moon Atlas</div>
+      <div class="pub-venue">RedMapper</div>
+      <div class="pub-desc">
+        A cartographic atlas of Earth's Moon, featuring over 9,000 named places, 47 human landing artifacts,
+        and full-bleed imagery rendered in the RedMapper cartographic tradition. Map F-10 was featured in
+        Jack Dangermond's 2021 Esri UC Plenary Session.
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-title">The Mercury Atlas</div>
+      <div class="pub-venue">RedMapper</div>
+      <div class="pub-desc">
+        An atlas of Mercury's surface using high-resolution geological overlay and MESSENGER satellite imagery,
+        charting named places and the only known human artifact on the planet.
       </div>
     </li>
     <li class="pub-item">
