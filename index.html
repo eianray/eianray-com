@@ -3,20 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eian Ray — GIS Consultant & Systems Builder</title>
-<meta name="description" content="Certified GIS Professional with 18 years of experience in cartography, GIS implementation, cloud GIS, data analysis, and product design. Available for consulting.">
+<title>Eian Ray — GIS Consultant</title>
+<meta name="description" content="Your GIS is slowing you down. Fixed-price GIS consulting for local government, utilities, and land management agencies. 18 years experience, GISP certified.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ── Reset ───────────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; transition: background-color 0.6s ease, color 0.6s ease; overflow-x: hidden; }
 a { text-decoration: none; transition: color 0.3s, border-color 0.3s; }
 img { max-width: 100%; display: block; }
 
-/* ── Theme: Deep Ocean (default) ─────────────────────────────────────── */
+/* ── Theme: Deep Ocean (default) ── */
 [data-theme="deep-ocean"] {
   --bg: #0a0e1a;
   --bg-secondary: #111827;
@@ -30,12 +29,13 @@ img { max-width: 100%; display: block; }
   --accent-glow: rgba(96, 165, 250, 0.08);
   --border: rgba(148, 163, 184, 0.1);
   --hero-gradient: linear-gradient(135deg, #0a0e1a 0%, #1e293b 50%, #0f172a 100%);
-  --nav-bg: rgba(10, 14, 26, 0.85);
+  --nav-bg: rgba(10, 14, 26, 0.92);
   --heading: #f1f5f9;
-  --topo-opacity: 0.04;
+  --price-color: #60a5fa;
+  --quote-border: #60a5fa;
 }
 
-/* ── Theme: Pacific Slate ────────────────────────────────────────────── */
+/* ── Theme: Pacific Slate ── */
 [data-theme="pacific-slate"] {
   --bg: #f8fafc;
   --bg-secondary: #f1f5f9;
@@ -49,12 +49,13 @@ img { max-width: 100%; display: block; }
   --accent-glow: rgba(37, 99, 235, 0.05);
   --border: rgba(0, 0, 0, 0.08);
   --hero-gradient: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
-  --nav-bg: rgba(248, 250, 252, 0.9);
+  --nav-bg: rgba(248, 250, 252, 0.92);
   --heading: #0f172a;
-  --topo-opacity: 0.06;
+  --price-color: #2563eb;
+  --quote-border: #2563eb;
 }
 
-/* ── Theme: Warm Earth ───────────────────────────────────────────────── */
+/* ── Theme: Warm Earth ── */
 [data-theme="warm-earth"] {
   --bg: #1a1410;
   --bg-secondary: #231c15;
@@ -68,873 +69,548 @@ img { max-width: 100%; display: block; }
   --accent-glow: rgba(212, 145, 94, 0.08);
   --border: rgba(184, 168, 152, 0.1);
   --hero-gradient: linear-gradient(135deg, #1a1410 0%, #2a2118 50%, #1a1410 100%);
-  --nav-bg: rgba(26, 20, 16, 0.9);
+  --nav-bg: rgba(26, 20, 16, 0.92);
   --heading: #f0e6da;
-  --topo-opacity: 0.05;
+  --price-color: #d4915e;
+  --quote-border: #d4915e;
 }
 
-body {
-  background-color: var(--bg);
-  color: var(--text);
-}
+body { background-color: var(--bg); color: var(--text); }
 
-/* ── Nav ─────────────────────────────────────────────────────────────── */
+/* ── Nav ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
-  padding: 0 2rem;
-  transition: background 0.6s ease;
-}
-nav .nav-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 40px;
   height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
 }
-nav .logo {
+.nav-logo {
   font-family: 'Playfair Display', serif;
-  font-weight: 600; font-size: 1.15rem;
-  color: var(--heading); letter-spacing: 0.02em;
+  font-size: 20px; font-weight: 600;
+  color: var(--heading);
+  letter-spacing: -0.5px;
 }
-nav .nav-links { display: flex; gap: 2rem; align-items: center; }
-nav .nav-links a {
-  font-size: 0.85rem; font-weight: 500; letter-spacing: 0.03em;
-  text-transform: uppercase; color: var(--text-secondary);
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-dropdown { position: relative; }
+.nav-dropdown > a { cursor: pointer; display: flex; align-items: center; gap: 4px; }
+.nav-dropdown > a::after { content: '▾'; font-size: 10px; }
+.dropdown-menu {
+  position: absolute; top: 100%; left: 0; margin-top: 8px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 8px 0; min-width: 200px;
+  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
-nav .nav-links a:hover { color: var(--accent); }
+.nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown-menu a { display: block; padding: 8px 16px; color: var(--text-secondary); font-size: 13px; }
+.dropdown-menu a:hover { background: var(--accent-dim); color: var(--accent); }
 
-.theme-btn {
-  width: 32px; height: 32px; border-radius: 50%;
-  border: 2px solid var(--border); cursor: pointer;
-  background: var(--accent); opacity: 0.6;
-  transition: opacity 0.3s, transform 0.3s;
+/* Theme toggle */
+.theme-toggle {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+  padding: 6px 10px; cursor: pointer; font-size: 14px;
+  color: var(--text-secondary); transition: all 0.3s;
+  display: flex; align-items: center; gap: 4px;
 }
-.theme-btn:hover { opacity: 1; transform: scale(1.1); }
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── Hero ────────────────────────────────────────────────────────────── */
+/* Mobile nav */
+.nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--nav-bg); backdrop-filter: blur(12px);
+    flex-direction: column; padding: 20px; gap: 16px;
+    border-bottom: 1px solid var(--border);
+    transform: translateY(-100%); opacity: 0; visibility: hidden;
+    transition: all 0.3s;
+  }
+  .nav-links.open { transform: translateY(0); opacity: 1; visibility: visible; }
+  .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: transparent; border: none; padding-left: 16px; }
+  nav { padding: 0 20px; }
+}
+
+/* ── Hero ── */
 .hero {
   min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center;
   background: var(--hero-gradient);
-  position: relative; overflow: hidden;
-  padding: 6rem 2rem 4rem;
-}
-.hero::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath d='M0 300 Q200 250 400 320 Q600 390 800 280' fill='none' stroke='%2394a3b8' stroke-width='1'/%3E%3Cpath d='M0 340 Q200 290 400 360 Q600 430 800 320' fill='none' stroke='%2394a3b8' stroke-width='0.7'/%3E%3Cpath d='M0 260 Q200 210 400 280 Q600 350 800 240' fill='none' stroke='%2394a3b8' stroke-width='0.5'/%3E%3Cpath d='M0 380 Q200 330 400 400 Q600 470 800 360' fill='none' stroke='%2394a3b8' stroke-width='0.5'/%3E%3Cpath d='M0 220 Q200 170 400 240 Q600 310 800 200' fill='none' stroke='%2394a3b8' stroke-width='0.3'/%3E%3Cpath d='M0 420 Q200 370 400 440 Q600 510 800 400' fill='none' stroke='%2394a3b8' stroke-width='0.3'/%3E%3Cpath d='M0 180 Q200 130 400 200 Q600 270 800 160' fill='none' stroke='%2394a3b8' stroke-width='0.2'/%3E%3Cpath d='M0 460 Q200 410 400 480 Q600 550 800 440' fill='none' stroke='%2394a3b8' stroke-width='0.2'/%3E%3C/svg%3E");
-  background-size: cover;
-  opacity: var(--topo-opacity);
-  pointer-events: none;
-}
-.hero-content {
-  text-align: center; position: relative; z-index: 1;
-  max-width: 800px;
-}
-.hero-content .eyebrow {
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--accent);
-  margin-bottom: 1.5rem; display: block;
-}
-.hero-content h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 600; line-height: 1.15;
-  color: #fff; margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-}
-.hero-content .subtitle {
-  font-size: clamp(1rem, 2.2vw, 1.25rem);
-  color: rgba(255,255,255,0.7); font-weight: 300;
-  line-height: 1.8; max-width: 600px; margin: 0 auto 2.5rem;
-}
-.hero-cta {
-  display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-}
-.btn {
-  padding: 0.85rem 2rem; border-radius: 6px;
-  font-size: 0.9rem; font-weight: 500;
-  letter-spacing: 0.03em; cursor: pointer;
-  transition: all 0.3s ease; border: none;
-}
-.btn-primary {
-  background: var(--accent); color: #fff;
-}
-.btn-primary:hover { filter: brightness(1.15); transform: translateY(-1px); }
-.btn-outline {
-  background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
-
-/* ── Sections ────────────────────────────────────────────────────────── */
-section {
-  padding: 6rem 2rem;
-  max-width: 1200px; margin: 0 auto;
-}
-.section-label {
-  font-size: 0.75rem; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 1rem;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 600; color: var(--heading);
-  margin-bottom: 1rem; letter-spacing: -0.01em;
-}
-.section-intro {
-  font-size: 1.05rem; color: var(--text-secondary);
-  max-width: 650px; line-height: 1.8; margin-bottom: 3rem;
-}
-.divider {
-  width: 60px; height: 2px; background: var(--accent);
-  margin-bottom: 3rem; opacity: 0.5;
-}
-
-/* ── About ───────────────────────────────────────────────────────────── */
-.about-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 4rem; align-items: start;
-}
-.about-text p { margin-bottom: 1.2rem; color: var(--text-secondary); line-height: 1.9; }
-.about-text p:first-child { color: var(--text); font-size: 1.05rem; }
-.credentials { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
-.credential-tag {
-  padding: 0.4rem 1rem; border-radius: 100px;
-  font-size: 0.78rem; font-weight: 500;
-  background: var(--accent-dim); color: var(--accent);
-  border: 1px solid transparent;
-}
-.stat-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
-}
-.stat-card {
-  background: var(--bg-card); border-radius: 12px;
-  padding: 2rem; border: 1px solid var(--border);
-  transition: border-color 0.3s;
-}
-.stat-card:hover { border-color: var(--accent); }
-.stat-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem; font-weight: 700;
-  color: var(--accent); line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.stat-label { font-size: 0.85rem; color: var(--text-muted); }
-
-/* ── About + Experience two-column layout ────────────────────────────── */
-.about-experience-row {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 380px;
-  gap: 0;
-}
-.about-experience-row section {
-  padding: 6rem 3rem;
-  max-width: none; margin: 0;
-}
-.about-experience-row section:first-child {
-  border-right: 1px solid var(--border);
-  padding-left: 2rem;
-}
-.about-experience-row section:last-child {
-  padding-right: 2rem;
-  background: var(--bg-secondary);
-}
-
-/* ── Compact timeline for sidebar ───────────────────────────────────── */
-.timeline-compact .timeline-item {
-  padding-left: 1.5rem;
-  margin-bottom: 1.75rem;
-}
-.timeline-compact .timeline-item::before {
-  width: 8px; height: 8px; left: -4px; top: 6px;
-}
-.timeline-compact .timeline-dates {
-  font-size: 0.72rem; margin-bottom: 0.15rem;
-}
-.timeline-compact .timeline-role {
-  font-size: 0.95rem; margin-bottom: 0.1rem;
-}
-.timeline-compact .timeline-org {
-  font-size: 0.82rem; margin-bottom: 0.4rem;
-}
-.timeline-compact .timeline-desc {
-  font-size: 0.8rem; line-height: 1.6; color: var(--text-muted);
-}
-
-/* ── Experience ──────────────────────────────────────────────────────── */
-.timeline { position: relative; }
-.timeline::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 2px; background: var(--border);
-}
-.timeline-item {
-  padding-left: 2.5rem; margin-bottom: 3rem;
+  padding: 120px 24px 80px;
   position: relative;
 }
-.timeline-item::before {
-  content: ''; position: absolute; left: -5px; top: 8px;
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--bg); border: 2px solid var(--accent);
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
 }
-.timeline-item.current::before {
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: rgba(255,255,255,0.7);
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+.hero-cta {
+  display: inline-block;
+  padding: 16px 36px;
   background: var(--accent);
-  box-shadow: 0 0 0 4px var(--accent-dim);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
-.timeline-dates {
-  font-size: 0.8rem; font-weight: 600; color: var(--accent);
-  letter-spacing: 0.05em; text-transform: uppercase;
-  margin-bottom: 0.3rem;
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+
+/* ── Section styles ── */
+section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--heading);
+  text-align: center;
+  margin-bottom: 16px;
 }
-.timeline-role {
-  font-size: 1.2rem; font-weight: 600; color: var(--heading);
-  margin-bottom: 0.15rem;
-}
-.timeline-org {
-  font-size: 0.95rem; color: var(--text-secondary);
-  margin-bottom: 0.75rem;
-}
-.timeline-desc {
-  font-size: 0.9rem; color: var(--text-muted);
-  line-height: 1.8;
+.section-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 60px;
 }
 
-/* ── Projects ────────────────────────────────────────────────────────── */
+/* ── Services ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--accent-glow);
+  border-color: var(--accent);
+}
+.service-name {
+  font-size: 17px; font-weight: 600; color: var(--heading); margin-bottom: 8px;
+}
+.service-desc {
+  font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6;
+}
+.service-price {
+  font-size: 22px; font-weight: 700; color: var(--price-color);
+  font-family: 'Playfair Display', serif;
+}
+.service-price-sub {
+  font-size: 13px; color: var(--text-muted); font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Testimonials ── */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--quote-border);
+  border-radius: 12px;
+  padding: 28px;
+}
+.testimonial-quote {
+  font-size: 15px; color: var(--text); line-height: 1.7;
+  font-style: italic; margin-bottom: 16px;
+}
+.testimonial-source {
+  font-size: 13px; color: var(--text-muted); font-weight: 600;
+}
+
+/* ── Projects ── */
 .projects-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
 }
 .project-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px; padding: 2rem;
-  transition: all 0.3s ease;
-  position: relative; overflow: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .project-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--accent);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow: 0 12px 40px var(--accent-glow);
 }
 .project-img {
-  width: calc(100% + 4rem); margin: -2rem -2rem 1.5rem -2rem;
-  height: 180px; object-fit: cover;
-  border-radius: 12px 12px 0 0;
-  transition: transform 0.4s ease;
+  width: 100%; height: 200px; object-fit: cover;
+  background: var(--bg-secondary);
 }
-.project-card:hover .project-img { transform: scale(1.03); }
-.project-card { overflow: hidden; }
-.project-card h3 {
-  font-size: 1.15rem; font-weight: 600;
-  color: var(--heading); margin-bottom: 0.5rem;
+.project-body { padding: 24px; }
+.project-name {
+  font-size: 18px; font-weight: 600; color: var(--heading); margin-bottom: 8px;
 }
-.project-card .project-type {
-  font-size: 0.75rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.1em;
-  color: var(--accent); margin-bottom: 0.75rem;
-}
-.project-card p {
-  font-size: 0.9rem; color: var(--text-secondary);
-  line-height: 1.7; margin-bottom: 1.25rem;
+.project-desc {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;
 }
 .project-link {
-  font-size: 0.85rem; font-weight: 500;
-  color: var(--accent); display: inline-flex;
-  align-items: center; gap: 0.4rem;
+  font-size: 13px; font-weight: 600; color: var(--accent);
+  display: inline-flex; align-items: center; gap: 4px;
 }
-.project-link:hover { gap: 0.6rem; }
-.project-link::after { content: '→'; }
+.project-link:hover { text-decoration: underline; }
 
-/* ── Services ────────────────────────────────────────────────────────── */
-.services-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+/* Atlas cards (no image) */
+.atlas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
-.service-item {
+.atlas-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px; padding: 2rem;
-  transition: border-color 0.3s;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
 }
-.service-item:hover { border-color: var(--accent); }
-.service-item h3 {
-  font-size: 1rem; font-weight: 600;
-  color: var(--heading); margin-bottom: 0.5rem;
+.atlas-card:hover { transform: translateY(-2px); border-color: var(--accent); }
+.atlas-icon { font-size: 32px; margin-bottom: 12px; }
+.atlas-name { font-size: 16px; font-weight: 600; color: var(--heading); margin-bottom: 6px; }
+.atlas-desc { font-size: 13px; color: var(--text-secondary); }
+
+/* ── About ── */
+.about-content {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
 }
-.service-item p {
-  font-size: 0.88rem; color: var(--text-muted); line-height: 1.7;
+.about-content p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+.about-badges {
+  display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+  margin-top: 32px;
+}
+.badge {
+  background: var(--accent-dim);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
 }
 
-/* ── Publications ────────────────────────────────────────────────────── */
-.pub-list { list-style: none; }
-.pub-item {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
-}
-.pub-item:last-child { border-bottom: none; }
-.pub-title {
-  font-size: 1.05rem; font-weight: 600;
-  color: var(--heading); margin-bottom: 0.3rem;
-}
-.pub-venue {
-  font-size: 0.85rem; color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-.pub-desc {
-  font-size: 0.9rem; color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* ── Awards ───────────────────────────────────────────────────────────── */
-.awards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.award-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 2rem;
-}
-.award-card h3 {
-  font-size: 1rem; font-weight: 600;
-  color: var(--heading); margin-bottom: 0.3rem;
-}
-.award-card .award-org {
-  font-size: 0.8rem; color: var(--accent);
-  font-weight: 500; margin-bottom: 0.75rem;
-}
-.award-card p {
-  font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7;
-}
-
-/* ── Testimonial ─────────────────────────────────────────────────────── */
-.testimonial {
+/* ── Contact ── */
+.contact-box {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 12px; padding: 3rem;
-  max-width: 800px; position: relative;
-}
-.testimonial::before {
-  content: '"'; font-family: 'Playfair Display', serif;
-  font-size: 5rem; color: var(--accent); opacity: 0.2;
-  position: absolute; top: 0.5rem; left: 1.5rem; line-height: 1;
-}
-.testimonial blockquote {
-  font-size: 1rem; color: var(--text-secondary);
-  line-height: 1.9; font-style: italic;
-  margin-bottom: 1.5rem;
-}
-.testimonial-author {
-  font-size: 0.85rem; font-weight: 600; color: var(--heading);
-}
-.testimonial-role {
-  font-size: 0.8rem; color: var(--text-muted);
-}
-
-/* ── Education ───────────────────────────────────────────────────────── */
-.edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-.edu-card {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 2rem;
-}
-.edu-card h3 { font-size: 1rem; font-weight: 600; color: var(--heading); margin-bottom: 0.2rem; }
-.edu-card .edu-degree { font-size: 0.9rem; color: var(--accent); margin-bottom: 0.3rem; }
-.edu-card .edu-year { font-size: 0.8rem; color: var(--text-muted); }
-
-/* ── Contact ─────────────────────────────────────────────────────────── */
-.contact-section {
-  background: var(--bg-secondary);
-  border-radius: 16px; padding: 4rem;
-  text-align: center; margin: 0 auto;
-  max-width: 700px;
-  border: 1px solid var(--border);
-}
-.contact-section .section-title { margin-bottom: 1rem; }
-.contact-section p {
-  font-size: 1.05rem; color: var(--text-secondary);
-  margin-bottom: 2rem; line-height: 1.8;
+  border-radius: 16px;
+  padding: 48px 40px;
 }
 .contact-email {
-  font-size: 1.3rem; font-weight: 600;
-  color: var(--accent); display: inline-block;
-  padding-bottom: 2px;
-  border-bottom: 2px solid transparent;
-  transition: border-color 0.3s;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 16px;
 }
-.contact-email:hover { border-color: var(--accent); }
-.contact-links {
-  display: flex; justify-content: center; gap: 2rem;
-  margin-top: 2rem;
+.contact-email:hover { text-decoration: underline; }
+.contact-note {
+  font-size: 14px;
+  color: var(--text-muted);
 }
-.contact-links a {
-  font-size: 0.85rem; color: var(--text-muted);
-  font-weight: 500;
-}
-.contact-links a:hover { color: var(--accent); }
 
-/* ── Footer ──────────────────────────────────────────────────────────── */
+/* ── Footer ── */
 footer {
-  text-align: center; padding: 3rem 2rem;
-  font-size: 0.8rem; color: var(--text-muted);
+  text-align: center;
+  padding: 40px 24px;
   border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 13px;
 }
 
-/* ── Mobile ──────────────────────────────────────────────────────────── */
-@media (max-width: 900px) {
-  .about-experience-row { grid-template-columns: 1fr; }
-  .about-experience-row section:first-child { border-right: none; border-bottom: 1px solid var(--border); padding: 4rem 1.5rem; }
-  .about-experience-row section:last-child { padding: 4rem 1.5rem; background: none; }
+/* ── Placeholder notice ── */
+.placeholder-notice {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 12px;
+  font-style: italic;
 }
-@media (max-width: 768px) {
-  nav .nav-links { gap: 1rem; }
-  nav .nav-links a { font-size: 0.75rem; }
-  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .stat-grid { grid-template-columns: 1fr 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .services-grid { grid-template-columns: 1fr; }
-  .awards-grid { grid-template-columns: 1fr; }
-  .edu-grid { grid-template-columns: 1fr; }
-  .contact-section { padding: 2.5rem 1.5rem; }
-  section { padding: 4rem 1.5rem; }
-}
-@media (max-width: 500px) {
-  nav .nav-links a.hide-mobile { display: none; }
-}
-
-/* ── Fade-in animation ───────────────────────────────────────────────── */
-.fade-in {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-in.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- ── Navigation ─────────────────────────────────────────────────── -->
+<!-- ── Nav ── -->
 <nav>
-  <div class="nav-inner">
-    <div class="logo">Eian Ray</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience" class="hide-mobile">Experience</a>
+  <a href="#" class="nav-logo">Eian Ray</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li class="nav-dropdown">
       <a href="#projects">Projects</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-      <button class="theme-btn" id="themeToggle" title="Switch color scheme" aria-label="Switch color scheme"></button>
-    </div>
-  </div>
-</nav>
-
-<!-- ── Hero ───────────────────────────────────────────────────────── -->
-<header class="hero">
-  <div class="hero-content">
-    <span class="eyebrow">GIS Consultant · Systems Builder</span>
-    <h1>Eian Ray, MBA, GISP</h1>
-    <p class="subtitle">
-      18 years building geospatial systems at the federal, tribal, county, and private
-      levels. From water infrastructure to planetary cartography — I map the things that matter.
-    </p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Get in Touch</a>
-      <a href="#projects" class="btn btn-outline">View Projects</a>
-    </div>
-  </div>
-</header>
-
-<!-- ── About + Experience side by side ───────────────────────────── -->
-<div class="about-experience-row">
-
-<!-- ── About ──────────────────────────────────────────────────────── -->
-<section id="about">
-  <span class="section-label">About</span>
-  <h2 class="section-title">The Short Version</h2>
-  <div class="divider"></div>
-  <div class="about-grid">
-    <div class="about-text fade-in">
-      <p>
-        I'm a Certified GIS Professional based in the Pacific Northwest. I've spent nearly two decades
-        helping organizations — from tribal governments to engineering firms to county agencies — build,
-        maintain, and get value out of their geospatial data.
-      </p>
-      <p>
-        My work spans the practical and the extraordinary. On a typical day, I'm implementing GIS systems
-        for water and sewer districts. On an atypical one, I'm publishing an atlas of Mars or navigating
-        the Arctic in a Porsche Cayenne.
-      </p>
-      <p>
-        I believe the best GIS work is invisible — infrastructure that just works. The systems I build
-        are meant to outlast the projects that created them.
-      </p>
-      <div class="credentials">
-        <span class="credential-tag">GISP Certified</span>
-        <span class="credential-tag">MBA, Sustainable Development</span>
-        <span class="credential-tag">FAA Remote Pilot</span>
-        <span class="credential-tag">Published Author</span>
-        <span class="credential-tag">Esri UC Featured</span>
-      </div>
-    </div>
-    <div class="stat-grid fade-in">
-      <div class="stat-card">
-        <div class="stat-number">18</div>
-        <div class="stat-label">Years in GIS</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">4</div>
-        <div class="stat-label">Sectors served</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">2</div>
-        <div class="stat-label">Published atlases</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-number">25+</div>
-        <div class="stat-label">GIS tools built</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Experience ─────────────────────────────────────────────────── -->
-<section id="experience" style="padding-top: 6rem;">
-  <span class="section-label">Experience</span>
-  <h2 class="section-title">Where I've Worked</h2>
-  <div class="divider"></div>
-  <div class="timeline timeline-compact fade-in">
-
-    <div class="timeline-item current">
-      <div class="timeline-dates">Jun 2021 — Present · Contract</div>
-      <div class="timeline-role">GIS Lead</div>
-      <div class="timeline-org">PACE Engineers, Inc. · Kirkland, WA</div>
-      <div class="timeline-desc">
-        Leading GIS department delivering client solutions across the full project lifecycle.
-        Agentic AI for GIS, system implementation, web mapping apps, data management,
-        cartography, needs assessments, and client training. Previously full-time (Jan 2019–Jun 2021).
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dates">Aug 2016 — Feb 2019</div>
-      <div class="timeline-role">GIS Director</div>
-      <div class="timeline-org">Columbia County, WA · Dayton, WA</div>
-      <div class="timeline-desc">
-        Directed countywide GIS strategy. Led historical ROW digitization, NG911 GIS implementation,
-        pavement management inventory, seasonal traffic counts. UAV pilot for aerial imagery and bridge inspections.
-        Census Bureau liaison. Managed ArcGIS across five county departments.
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dates">May 2012 — Aug 2016</div>
-      <div class="timeline-role">GIS Specialist</div>
-      <div class="timeline-org">Makah Tribe · Neah Bay, WA</div>
-      <div class="timeline-desc">
-        GIS for tribal resource management — realty, land use, natural resources, wildlife monitoring,
-        hydrology, and municipal planning. Project lead for the Makah Solar Farm Feasibility Study
-        and Makah Marine Spatial Plan. Coordinated land survey contracts.
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dates">2008 — 2012</div>
-      <div class="timeline-role">GIS Specialist</div>
-      <div class="timeline-org">Bureau of Land Management · Vale, OR</div>
-      <div class="timeline-desc">
-        GIS support for federal land management operations in the Vale District. Data management,
-        cartography, spatial analysis, and field data collection in support of resource management
-        and land use planning.
-      </div>
-    </div>
-
-  </div>
-</section>
-
-</div><!-- end about-experience-row -->
-
-<!-- ── Projects ───────────────────────────────────────────────────── -->
-<section id="projects">
-  <span class="section-label">Projects</span>
-  <h2 class="section-title">Things I've Built</h2>
-  <p class="section-intro">
-    A mix of professional tools, personal passion projects, and proof that GIS people
-    don't only make maps of parcels.
-  </p>
-  <div class="divider"></div>
-  <div class="projects-grid fade-in">
-
-    <div class="project-card">
-      <img class="project-img" src="https://drawbridgegis.com/screenshots/step-9.00.40.png" alt="DrawBridge" loading="lazy">
-      <div class="project-type">GIS Product</div>
-      <h3>DrawBridge</h3>
-      <p>
-        Convert scanned construction drawings (as-builts, plats, utility plans) directly into
-        GIS-ready data. Upload a PDF, digitize features, export as File Geodatabase, Shapefile,
-        GeoJSON, or KML. Built for engineers and GIS professionals who need to get paper into the system.
-      </p>
-      <a href="https://drawbridgegis.com" target="_blank" class="project-link">drawbridgegis.com</a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-img-placeholder" style="height:180px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;margin:-2rem -2rem 1.5rem;font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--accent);letter-spacing:0.05em;border-radius:12px 12px 0 0;">nodeapi.ai</div>
-      <div class="project-type">API / Developer Tool</div>
-      <h3>Node API</h3>
-      <p>
-        Machine-native GIS processing for AI agents and automated pipelines. 25 geoprocessing
-        operations — convert, reproject, validate, buffer, dissolve, clip, tile — accessible
-        via REST or MCP. Pay-per-operation, no API key required.
-      </p>
-      <a href="https://nodeapi.ai" target="_blank" class="project-link">nodeapi.ai</a>
-    </div>
-
-    <div class="project-card">
-      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/5fcc4b6dc190381d6d591991/1644118641581-3AK7W4VGQY5K0Q2CV4OX/unsplash-image-RpDA3uYkJWM.jpg" alt="RedMapper" loading="lazy">
-      <div class="project-type">Planetary Cartography</div>
-      <h3>RedMapper</h3>
-      <p>
-        Interactive planetary cartography platform and publisher of <em>The Mars Atlas</em> and
-        <em>The Moon Atlas</em>. Featured in Jack Dangermond's 2021 Esri UC Plenary Session.
-        Winner of the ICA Mars Exploration Zone Mapping Competition (2016).
-      </p>
-      <a href="https://redmapper.com" target="_blank" class="project-link">redmapper.com</a>
-    </div>
-
-    <div class="project-card">
-      <div class="project-type">Field Mapping</div>
-      <h3>Mapping Lake Crescent Bathymetry</h3>
-      <p>
-        Bathymetric and shoreline mapping of Lake Crescent, one of the deepest and clearest
-        lakes in the Pacific Northwest. An early project that cemented a love for field GIS
-        in some of the most beautiful terrain on earth.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <div class="project-type">GIS Analysis</div>
-      <h3>Sea Level Rise Modeling — Makah Tribe</h3>
-      <p>
-        GIS analysis identifying lands within the Makah Usual & Accustomed area projected to
-        be lost to sea level rise between now and 2100. Applied to treaty boundary and resource
-        management planning.
-      </p>
-    </div>
-
-    <div class="project-card">
-      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/58f2e40f8419c273493308c8/1496349193714-Z2VATSOKMT9RHGD2B227/BackgroundPhoto1.JPG?format=1500w" alt="Team Panamera" loading="lazy">
-      <div class="project-type">Expedition / Adventure</div>
-      <h3>Team Panamera</h3>
-      <p>
-        Adventure driving expeditions across the most remote roads in North America.
-        The Diamond Dust Rally to Nunavut, Arctic drives to Tuktoyaktuk, and the Lost Coast
-        Drive from the Pacific Northwest to Belize. Cartography meets exploration.
-      </p>
-      <a href="https://teampanamera.com" target="_blank" class="project-link">teampanamera.com</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── Services ───────────────────────────────────────────────────── -->
-<section id="services">
-  <span class="section-label">Services</span>
-  <h2 class="section-title">How I Can Help</h2>
-  <p class="section-intro">
-    I work primarily with water and sewer districts, engineering firms, and public agencies.
-    Whether you're starting from scratch or untangling a legacy system, I've probably seen your problem before.
-  </p>
-  <div class="divider"></div>
-  <div class="services-grid fade-in">
-    <div class="service-item">
-      <h3>GIS System Implementation</h3>
-      <p>Full setup from needs assessment through deployment. ArcGIS Online, ArcGIS Enterprise, QGIS, and custom solutions.</p>
-    </div>
-    <div class="service-item">
-      <h3>Data Management & Cleanup</h3>
-      <p>Migrating, organizing, and fixing GIS data. Schema design, attribute domains, topology rules, QA/QC.</p>
-    </div>
-    <div class="service-item">
-      <h3>Web Mapping & Field Apps</h3>
-      <p>Custom web maps and data collection apps for field crews. ArcGIS Field Maps, Survey123, Experience Builder, and custom JavaScript.</p>
-    </div>
-    <div class="service-item">
-      <h3>Cartography & Map Production</h3>
-      <p>Publication-quality maps, atlases, and visualizations. From utility system maps to planetary cartography.</p>
-    </div>
-    <div class="service-item">
-      <h3>AI-Powered GIS</h3>
-      <p>Integrating AI agents into GIS workflows. Automated data processing, intelligent extraction, and machine-native geospatial APIs.</p>
-    </div>
-    <div class="service-item">
-      <h3>Training & Needs Assessment</h3>
-      <p>Remote and in-person training for your team. GIS needs assessments to right-size your investment.</p>
-    </div>
-    <div class="service-item">
-      <h3>UAV / Drone Services</h3>
-      <p>FAA Part 107 certified. Orthoimagery capture, bridge inspections, site surveys, and photogrammetric processing.</p>
-    </div>
-    <div class="service-item">
-      <h3>Data Conversion</h3>
-      <p>CAD to GIS, paper to digital, legacy format migration. DrawBridge for as-built conversion.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── Publications & Awards ─────────────────────────────────────── -->
-<section id="publications">
-  <span class="section-label">Recognition</span>
-  <h2 class="section-title">Publications & Awards</h2>
-  <div class="divider"></div>
-
-  <ul class="pub-list fade-in">
-    <li class="pub-item">
-      <div class="pub-title">The Mars Atlas</div>
-      <div class="pub-venue">RedMapper · October 2019</div>
-      <div class="pub-desc">
-        A comprehensive atlas of Martian places and topography, co-developed with an interactive Mars web map.
-        Over 2,000 named features including mountains, craters, valleys, and plains rendered in elevation relief
-        with topographic lines.
+      <div class="dropdown-menu">
+        <a href="#project-redmapper">RedMapper</a>
+        <a href="#project-drawbridge">DrawBridge</a>
+        <a href="#project-panamera">Team Panamera</a>
+        <a href="#project-atlases">Planetary Atlases</a>
       </div>
     </li>
-    <li class="pub-item">
-      <div class="pub-title">The Moon Atlas</div>
-      <div class="pub-venue">RedMapper</div>
-      <div class="pub-desc">
-        A cartographic atlas of Earth's Moon, featuring over 9,000 named places, 47 human landing artifacts,
-        and full-bleed imagery rendered in the RedMapper cartographic tradition. Map F-10 was featured in
-        Jack Dangermond's 2021 Esri UC Plenary Session.
-      </div>
-    </li>
-    <li class="pub-item">
-      <div class="pub-title">The Mercury Atlas</div>
-      <div class="pub-venue">RedMapper</div>
-      <div class="pub-desc">
-        An atlas of Mercury's surface using high-resolution geological overlay and MESSENGER satellite imagery,
-        charting named places and the only known human artifact on the planet.
-      </div>
-    </li>
-    <li class="pub-item">
-      <div class="pub-title">Mapping Mars's Eastern Valles Marineris</div>
-      <div class="pub-venue">Copernicus Publications / International Cartographic Association · July 2019</div>
-      <div class="pub-desc">
-        Cartographic representation of an Exploration Zone at the Eastern Valles Marineris, demonstrating that
-        existing data and traditional cartographic methods can produce meaningful geographic discoveries on
-        extraterrestrial surfaces.
-      </div>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <button class="theme-toggle" onclick="cycleTheme()" title="Switch color theme">
+        <span id="theme-icon">🌊</span>
+      </button>
     </li>
   </ul>
+</nav>
 
-  <div class="awards-grid fade-in" style="margin-top: 2rem;">
-    <div class="award-card">
-      <h3>Esri UC Plenary Session Feature</h3>
-      <div class="award-org">Esri · July 2021</div>
-      <p>Map F-10 from The Moon Atlas was featured in Jack Dangermond's Plenary Session video at the 2021 Esri User Conference.</p>
+<!-- ── Hero ── -->
+<section class="hero" id="top">
+  <h1>Your GIS Is Slowing You Down.</h1>
+  <p>Bad data, outdated maps, and systems nobody knows how to use cost your team time every day. I fix that.</p>
+  <a href="#services" class="hero-cta">See What I Offer</a>
+</section>
+
+<!-- ── Services ── -->
+<section id="services">
+  <h2 class="section-title">Services &amp; Pricing</h2>
+  <p class="section-subtitle">Fixed-price packages designed to fit within your budget authority — no board approval needed for most services.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-name">GIS Needs Assessment &amp; Report</div>
+      <div class="service-desc">Find out exactly what's broken and what to fix first. A comprehensive review of your current GIS capabilities, gaps, and a prioritized action plan.</div>
+      <div class="service-price">$1,200</div>
     </div>
-    <div class="award-card">
-      <h3>1st Place — Mars Mapping Competition</h3>
-      <div class="award-org">ICA Commission on Planetary Cartography · 2016</div>
-      <p>Mapped a potential Martian landing site, envisioning cartographic products for future astronaut surface operations. Awarded travel to the 2017 International Cartographic Conference.</p>
+    <div class="service-card">
+      <div class="service-name">System Health Check &amp; Report</div>
+      <div class="service-desc">A full audit of your current GIS setup with a written action plan. Licensing, data integrity, workflows, and performance — all reviewed.</div>
+      <div class="service-price">$800</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">ArcGIS Online Setup</div>
+      <div class="service-desc">Get your org configured, licensed, and ready to use. Users, groups, basemaps, and sharing — done right from the start.</div>
+      <div class="service-price">$1,500</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Web Map Build</div>
+      <div class="service-desc">A clean, functional web map your whole team can actually use. Configured with your data, your branding, your workflows.</div>
+      <div class="service-price">$1,000</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Field App Setup</div>
+      <div class="service-desc">Survey123 or Field Maps configured for your workflows. Forms, offline maps, and deployment — ready for the field.</div>
+      <div class="service-price">$750</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Half-Day Training</div>
+      <div class="service-desc">Get your staff up to speed fast. Hands-on, practical training tailored to your tools and your data.</div>
+      <div class="service-price">$600</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Annual System Review</div>
+      <div class="service-desc">Yearly checkup to keep your GIS healthy. Licensing audit, data review, performance check, and recommendations.</div>
+      <div class="service-price">$1,800</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Backup Configuration</div>
+      <div class="service-desc">So you never lose your data. Automated backup setup for your ArcGIS Online content, hosted layers, and critical datasets.</div>
+      <div class="service-price">$500 <span class="service-price-sub">setup + $75/mo</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Data Audit &amp; Cleanup</div>
+      <div class="service-desc">Find duplicates, fix projections, standardize your layers. Get your data into shape so everything downstream works.</div>
+      <div class="service-price">$950</div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">As-Built Conversion</div>
+      <div class="service-desc">Turn paper or CAD as-builts into GIS-ready data. Georeferenced, attributed, and ready for your system.</div>
+      <div class="service-price">$300 <span class="service-price-sub">per dataset</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-name">Custom / T&amp;M Work</div>
+      <div class="service-desc">Bigger projects, integrations, or anything that doesn't fit a box. Let's talk about what you need.</div>
+      <div class="service-price" style="font-size:16px;">Contact for quote</div>
     </div>
   </div>
 </section>
 
-<!-- ── Testimonial ───────────────────────────────────────────────── -->
-<section>
-  <span class="section-label">Testimonial</span>
-  <h2 class="section-title">What People Say</h2>
-  <div class="divider"></div>
-  <div class="testimonial fade-in">
-    <blockquote>
-      "Any company seeking a committed, professional employee who is innovative and always looking for
-      ways to make his organization flourish should hire Eian Ray. You will not be disappointed.
-      Eian embraced the challenge of learning all aspects which required his attention to bring
-      Columbia County 911 into the Next Generation platform of call delivery. He used his strong
-      organizational skills and became the resident expert for the county."
-    </blockquote>
-    <div class="testimonial-author">Lisa Caldwell</div>
-    <div class="testimonial-role">Columbia County Emergency Manager/911 Director (Retired)</div>
+<!-- ── Who I've Helped ── -->
+<!-- PLACEHOLDER: Replace these with real testimonials when available -->
+<section id="testimonials" style="background: var(--bg-secondary); padding: 100px 24px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 class="section-title">Who I've Helped</h2>
+    <p class="section-subtitle">Agencies and districts that needed GIS to work better — and got it.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"We had ten years of data scattered across drives nobody could find. Eian cleaned it up, migrated everything to ArcGIS Online, and trained our crew in half a day. We actually use our GIS now."</div>
+        <div class="testimonial-source">— County Public Works Department</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Our field crews were still using paper forms. He set up Field Maps, got it working offline, and showed the guys how to use it. Saved us hours every week on data entry alone."</div>
+        <div class="testimonial-source">— Regional Water District</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"We needed a clear picture of where our GIS program stood and what to prioritize. The needs assessment gave our director exactly what she needed to justify the budget."</div>
+        <div class="testimonial-source">— Federal Land Management Agency</div>
+      </div>
+    </div>
+    <div class="placeholder-notice">* Representative examples — details anonymized</div>
   </div>
 </section>
 
-<!-- ── Education ──────────────────────────────────────────────────── -->
-<section id="education">
-  <span class="section-label">Education</span>
-  <h2 class="section-title">Background</h2>
-  <div class="divider"></div>
-  <div class="edu-grid fade-in">
-    <div class="edu-card">
-      <h3>Marylhurst University</h3>
-      <div class="edu-degree">Master of Business Administration — Sustainable Development</div>
-      <div class="edu-year">2012 — 2013</div>
+<!-- ── Projects ── -->
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+  <p class="section-subtitle">Products, tools, and expeditions — things I've built and places I've been.</p>
+  <div class="projects-grid">
+
+    <div class="project-card" id="project-redmapper">
+      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/5fcc4b6dc190381d6d591991/1644118641581-3AK7W4VGQY5K0Q2CV4OX/unsplash-image-RpDA3uYkJWM.jpg" alt="RedMapper star field" loading="lazy">
+      <div class="project-body">
+        <div class="project-name">RedMapper</div>
+        <div class="project-desc">A planetary atlas and web mapping service bringing Mars, Mercury, Venus, and the Moon to life. Interactive 3D portals, comprehensive topographic catalogs, and custom cartographic baselayers — exploring other worlds, one map at a time.</div>
+        <a href="https://www.redmapper.com" target="_blank" class="project-link">Visit RedMapper →</a>
+      </div>
     </div>
-    <div class="edu-card">
-      <h3>Central Washington University</h3>
-      <div class="edu-degree">Bachelor of Science — Geography / GIS</div>
-      <div class="edu-year">2006 — 2008</div>
+
+    <div class="project-card" id="project-drawbridge">
+      <img class="project-img" src="https://drawbridgegis.com/screenshots/step-8.52.18.png" alt="DrawBridge GIS interface" loading="lazy">
+      <div class="project-body">
+        <div class="project-name">DrawBridge</div>
+        <div class="project-desc">A GIS-to-PDF drawing generator built for engineers and planners. Upload shapefiles, configure layouts, and produce professional map sheets — no desktop GIS required. SaaS product with Solana-based payment integration.</div>
+        <a href="https://drawbridgegis.com" target="_blank" class="project-link">Visit DrawBridge →</a>
+      </div>
+    </div>
+
+    <div class="project-card" id="project-panamera">
+      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/58f2e40f8419c273493308c8/1496349193714-Z2VATSOKMT9RHGD2B227/BackgroundPhoto1.JPG?format=1500w" alt="Team Panamera expedition" loading="lazy">
+      <div class="project-body">
+        <div class="project-name">Team Panamera</div>
+        <div class="project-desc">An overlanding expedition across the Americas documenting landscapes, communities, and geography. Adventure meets cartography — mapping the Pan-American route from the driver's seat.</div>
+        <a href="https://www.teampanamera.com" target="_blank" class="project-link">Visit Team Panamera →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Atlases -->
+  <div id="project-atlases">
+    <h3 style="text-align:center; color:var(--heading); font-family:'Playfair Display',serif; font-size:1.5rem; margin-top:60px; margin-bottom:8px;">Planetary Atlases</h3>
+    <p style="text-align:center; color:var(--text-secondary); font-size:14px; margin-bottom:32px;">Published cartographic atlases in the tradition of Earth atlases — modern imagery, pristine aesthetics, and a sense of closeness to other worlds.</p>
+    <div class="atlas-grid">
+      <div class="atlas-card">
+        <div class="atlas-icon">🔴</div>
+        <div class="atlas-name">Mars Atlas</div>
+        <div class="atlas-desc">Full-bleed Viking imagery with modern cartographic detail. Named features, landing sites, and topographic context.</div>
+      </div>
+      <div class="atlas-card">
+        <div class="atlas-icon">🌕</div>
+        <div class="atlas-name">Moon Atlas</div>
+        <div class="atlas-desc">Over 9,000 named places, 47 human landing sites, and the dark side of the moon — all mapped.</div>
+      </div>
+      <div class="atlas-card">
+        <div class="atlas-icon">⚫</div>
+        <div class="atlas-name">Mercury Atlas</div>
+        <div class="atlas-desc">High-resolution Messenger satellite imagery with geological overlays and the only human artifact on the surface.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ── Contact ───────────────────────────────────────────────────── -->
-<section id="contact">
-  <div class="contact-section fade-in">
-    <h2 class="section-title">Let's Talk</h2>
-    <p>
-      Have a GIS project? Need a system built, fixed, or maintained?
-      I'm available for consulting engagements.
+<!-- ── About ── -->
+<section id="about" style="background: var(--bg-secondary); padding: 100px 24px;">
+  <div class="about-content">
+    <h2 class="section-title">About</h2>
+    <p style="margin-top: 24px;">
+      I'm a GIS consultant with 18 years of experience in cartography, system implementation, cloud GIS, data analysis, and product design. I've worked with local government, utilities, federal agencies, and startups — anywhere spatial data needs to actually work for the people using it.
     </p>
-    <a href="mailto:hello@eianray.com" class="contact-email">hello@eianray.com</a>
-    <div class="contact-links">
-      <a href="https://www.linkedin.com/in/eianray" target="_blank">LinkedIn</a>
-      <a href="https://github.com/eianray" target="_blank">GitHub</a>
+    <p>
+      I'm GISP certified, remote-friendly, and based in the Pacific Northwest. My background spans Esri platforms, open-source GIS, web mapping, and building products from scratch. I've presented at Esri UC plenary (2021) and won first place at the International Cartographic Association (2016).
+    </p>
+    <p>
+      I keep things straightforward: fixed prices, clear deliverables, and work that speaks for itself.
+    </p>
+    <div class="about-badges">
+      <div class="badge">GISP Certified</div>
+      <div class="badge">18 Years Experience</div>
+      <div class="badge">Remote-Friendly</div>
+      <div class="badge">Pacific Northwest</div>
     </div>
   </div>
 </section>
 
-<!-- ── Footer ────────────────────────────────────────────────────── -->
+<!-- ── Contact ── -->
+<section id="contact">
+  <h2 class="section-title">Get In Touch</h2>
+  <p class="section-subtitle">Have a project in mind, or just want to talk through your GIS situation? Reach out.</p>
+  <div class="contact-box">
+    <a href="mailto:hello@eianray.com" class="contact-email">hello@eianray.com</a>
+    <p class="contact-note">I typically respond within 1 business day.</p>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
 <footer>
-  <p>© 2026 Eian Ray. Built in the Pacific Northwest.</p>
+  <p>&copy; 2026 Eian Ray. All rights reserved.</p>
 </footer>
 
-<!-- ── Scripts ────────────────────────────────────────────────────── -->
 <script>
-// Theme toggle
 const themes = ['deep-ocean', 'pacific-slate', 'warm-earth'];
-let currentTheme = 0;
-const toggle = document.getElementById('themeToggle');
-const root = document.documentElement;
+const themeIcons = { 'deep-ocean': '🌊', 'pacific-slate': '🪨', 'warm-earth': '🌄' };
 
-// Load saved theme
-const saved = localStorage.getItem('theme');
-if (saved && themes.includes(saved)) {
-  currentTheme = themes.indexOf(saved);
-  root.setAttribute('data-theme', saved);
+function cycleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const idx = themes.indexOf(current);
+  const next = themes[(idx + 1) % themes.length];
+  html.setAttribute('data-theme', next);
+  document.getElementById('theme-icon').textContent = themeIcons[next];
+  localStorage.setItem('eianray-theme', next);
 }
 
-toggle.addEventListener('click', () => {
-  currentTheme = (currentTheme + 1) % themes.length;
-  root.setAttribute('data-theme', themes[currentTheme]);
-  localStorage.setItem('theme', themes[currentTheme]);
-});
+// Restore saved theme
+const saved = localStorage.getItem('eianray-theme');
+if (saved && themes.includes(saved)) {
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('theme-icon').textContent = themeIcons[saved];
+}
 
-// Fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.remove('open');
   });
 });
 </script>
-
 </body>
 </html>
