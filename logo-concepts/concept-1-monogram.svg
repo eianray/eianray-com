@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- ER monogram — clean geometric, single weight -->
+  <rect width="200" height="200" rx="20" fill="#0d1210"/>
+  <g fill="none" stroke="#c8d4cc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- E -->
+    <path d="M 52 60 L 52 140"/>
+    <path d="M 52 60 L 88 60"/>
+    <path d="M 52 100 L 82 100"/>
+    <path d="M 52 140 L 88 140"/>
+    <!-- R -->
+    <path d="M 108 60 L 108 140"/>
+    <path d="M 108 60 L 138 60 Q 152 60 152 78 Q 152 96 138 96 L 108 96"/>
+    <path d="M 130 96 L 152 140"/>
+  </g>
+</svg>

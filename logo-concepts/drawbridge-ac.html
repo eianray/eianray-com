@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DrawBridge — A vs C</title>
+<style>
+body { background: #111; color: #ccc; font-family: -apple-system, sans-serif; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+h1 { font-size: 28px; color: #fff; }
+h2 { font-size: 18px; color: #888; font-weight: 400; }
+.row { display: flex; gap: 60px; flex-wrap: wrap; justify-content: center; }
+.col { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.col h3 { font-size: 16px; color: #fff; margin: 0; }
+.col p { font-size: 12px; color: #666; max-width: 220px; margin: 0; }
+.sizes { display: flex; gap: 16px; align-items: end; }
+.sizes > div { text-align: center; }
+.sizes .label { font-size: 11px; color: #555; margin-top: 4px; }
+/* Simulated project card */
+.mock-card { width: 260px; border-radius: 12px; overflow: hidden; background: #111a2e; border: 1px solid rgba(148,163,184,0.08); }
+.mock-card-img { width: 100%; height: 140px; display: flex; align-items: center; justify-content: center; }
+.mock-card-body { padding: 16px; text-align: left; }
+.mock-card-body h4 { color: #f1f5f9; font-size: 15px; margin: 0 0 6px; }
+.mock-card-body p { color: #94a3b8; font-size: 12px; line-height: 1.5; }
+/* Simulated dropdown */
+.mock-dd { background: #111a2e; border: 1px solid rgba(148,163,184,0.08); border-radius: 10px; padding: 8px 16px; display: flex; align-items: center; gap: 10px; width: 220px; }
+.mock-dd img, .mock-dd svg { width: 28px; height: 28px; border-radius: 5px; flex-shrink: 0; }
+.mock-dd .dd-label { font-size: 13px; color: #94a3b8; font-weight: 500; }
+.mock-dd .dd-sub { font-size: 10px; color: #64748b; }
+</style>
+</head>
+<body>
+
+<h1>DrawBridge — A vs C Final Comparison</h1>
+
+<div class="row">
+
+  <!-- Concept A column -->
+  <div class="col">
+    <h3>Concept A — Orange Background</h3>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="160" height="160">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <path d="M 40,170 L 40,70 A 60,65 0 0 1 160,70 L 160,170 Z" fill="#141b24"/>
+      <polygon points="40,170 160,170 130,120 70,120" fill="#f7931a" opacity="0.85"/>
+    </svg>
+
+    <div class="mock-dd">
+      <svg viewBox="0 0 200 200" width="28" height="28">
+        <rect width="200" height="200" rx="20" fill="#f7931a"/>
+        <path d="M 40,170 L 40,70 A 60,65 0 0 1 160,70 L 160,170 Z" fill="#141b24"/>
+        <polygon points="40,170 160,170 130,120 70,120" fill="#f7931a" opacity="0.85"/>
+      </svg>
+      <div>
+        <div class="dd-label">DrawBridge</div>
+        <div class="dd-sub">PDF-to-GIS as-built digitizer</div>
+      </div>
+    </div>
+
+    <div class="mock-card">
+      <div class="mock-card-img" style="background:#f7931a;">
+        <svg viewBox="0 0 200 200" width="90" height="90">
+          <path d="M 40,170 L 40,70 A 60,65 0 0 1 160,70 L 160,170 Z" fill="#141b24"/>
+          <polygon points="40,170 160,170 130,120 70,120" fill="#f7931a" opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="mock-card-body">
+        <h4>DrawBridge</h4>
+        <p>PDF-to-GIS georeferencing tool for digitizing as-built drawings.</p>
+      </div>
+    </div>
+
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 40,170 L 40,70 A 60,65 0 0 1 160,70 L 160,170 Z" fill="#141b24"/><polygon points="40,170 160,170 130,120 70,120" fill="#f7931a" opacity="0.85"/></svg>
+        <div class="label">64px</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 40,170 L 40,70 A 60,65 0 0 1 160,70 L 160,170 Z" fill="#141b24"/><polygon points="40,170 160,170 130,120 70,120" fill="#f7931a" opacity="0.85"/></svg>
+        <div class="label">32px</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 40,170 L 40,70 A 60,65 0 0 1 160,70 L 160,170 Z" fill="#141b24"/><polygon points="40,170 160,170 130,120 70,120" fill="#f7931a" opacity="0.85"/></svg>
+        <div class="label">16px</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept C column -->
+  <div class="col">
+    <h3>Concept C — Dark Background</h3>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="160" height="160">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 30,175 L 30,60 A 70,65 0 0 1 170,60 L 170,175 Z" fill="#f7931a"/>
+      <path d="M 48,175 L 48,68 A 52,50 0 0 1 152,68 L 152,175 Z" fill="#141b24"/>
+      <polygon points="48,175 152,175 124,120 76,120" fill="#f7931a" opacity="0.7"/>
+    </svg>
+
+    <div class="mock-dd">
+      <svg viewBox="0 0 200 200" width="28" height="28">
+        <rect width="200" height="200" rx="20" fill="#141b24"/>
+        <path d="M 30,175 L 30,60 A 70,65 0 0 1 170,60 L 170,175 Z" fill="#f7931a"/>
+        <path d="M 48,175 L 48,68 A 52,50 0 0 1 152,68 L 152,175 Z" fill="#141b24"/>
+        <polygon points="48,175 152,175 124,120 76,120" fill="#f7931a" opacity="0.7"/>
+      </svg>
+      <div>
+        <div class="dd-label">DrawBridge</div>
+        <div class="dd-sub">PDF-to-GIS as-built digitizer</div>
+      </div>
+    </div>
+
+    <div class="mock-card">
+      <div class="mock-card-img" style="background:#141b24;">
+        <svg viewBox="0 0 200 200" width="90" height="90">
+          <path d="M 30,175 L 30,60 A 70,65 0 0 1 170,60 L 170,175 Z" fill="#f7931a"/>
+          <path d="M 48,175 L 48,68 A 52,50 0 0 1 152,68 L 152,175 Z" fill="#141b24"/>
+          <polygon points="48,175 152,175 124,120 76,120" fill="#f7931a" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="mock-card-body">
+        <h4>DrawBridge</h4>
+        <p>PDF-to-GIS georeferencing tool for digitizing as-built drawings.</p>
+      </div>
+    </div>
+
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 30,175 L 30,60 A 70,65 0 0 1 170,60 L 170,175 Z" fill="#f7931a"/><path d="M 48,175 L 48,68 A 52,50 0 0 1 152,68 L 152,175 Z" fill="#141b24"/><polygon points="48,175 152,175 124,120 76,120" fill="#f7931a" opacity="0.7"/></svg>
+        <div class="label">64px</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 30,175 L 30,60 A 70,65 0 0 1 170,60 L 170,175 Z" fill="#f7931a"/><path d="M 48,175 L 48,68 A 52,50 0 0 1 152,68 L 152,175 Z" fill="#141b24"/><polygon points="48,175 152,175 124,120 76,120" fill="#f7931a" opacity="0.7"/></svg>
+        <div class="label">32px</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 30,175 L 30,60 A 70,65 0 0 1 170,60 L 170,175 Z" fill="#f7931a"/><path d="M 48,175 L 48,68 A 52,50 0 0 1 152,68 L 152,175 Z" fill="#141b24"/><polygon points="48,175 152,175 124,120 76,120" fill="#f7931a" opacity="0.7"/></svg>
+        <div class="label">16px</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

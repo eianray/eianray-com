@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Just a single Douglas fir silhouette — icon mark only, ultra minimal -->
+  <rect width="200" height="200" rx="20" fill="#0d1210"/>
+  <g fill="none" stroke="#c8d4cc" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Tree - stylized conifer, slightly asymmetric for natural feel -->
+    <path d="M 100 32 L 80 72"/>
+    <path d="M 100 32 L 120 72"/>
+    <path d="M 84 64 L 72 100"/>
+    <path d="M 116 64 L 128 100"/>
+    <path d="M 76 92 L 66 126"/>
+    <path d="M 124 92 L 134 126"/>
+    <path d="M 70 118 L 62 148"/>
+    <path d="M 130 118 L 138 148"/>
+    <!-- Trunk -->
+    <path d="M 100 142 L 100 170"/>
+    <!-- Ground line -->
+    <line x1="80" y1="170" x2="120" y2="170" opacity="0.4"/>
+  </g>
+</svg>

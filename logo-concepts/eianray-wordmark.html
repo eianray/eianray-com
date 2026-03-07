@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Eian Ray — Wordmark Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #f0f4f8; font-family: 'IBM Plex Sans', sans-serif; padding: 48px 32px; }
+  h1 { font-size: 14px; font-weight: 600; color: #6b7e96; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+
+  .concept {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px 32px;
+    border: 1px solid #dde4ed;
+  }
+  .concept-label { font-size: 11px; font-weight: 600; color: #aab; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+
+  /* Dark bg versions */
+  .concept.dark { background: #0d1f2d; }
+  .concept.teal-bg { background: #0a8a8a; }
+
+  /* — Concept A: Tru-North — */
+  .wordmark-a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .wordmark-a .name {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0d1f2d;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .wordmark-a .name span { color: #0a8a8a; }
+  .wordmark-a .tagline {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6b7e96;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  /* — Concept B: Coordinate Cross — */
+  .wordmark-b {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .wordmark-b .name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #0d1f2d;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .wordmark-b .tagline {
+    font-size: 10px;
+    color: #6b7e96;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  /* — Concept C: Topographic — */
+  .wordmark-c {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .wordmark-c .text-block { display: flex; flex-direction: column; }
+  .wordmark-c .name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #0d1f2d;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+  .wordmark-c .sub {
+    font-size: 10px;
+    font-weight: 600;
+    color: #0a8a8a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* — Concept D: Meridian Arc — */
+  .wordmark-d {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .wordmark-d .name {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 34px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .wordmark-d .tagline {
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* Light variants */
+  .wordmark-a-light .name { color: #fff; }
+  .wordmark-a-light .name span { color: #3dcccc; }
+  .wordmark-a-light .tagline { color: rgba(255,255,255,0.5); }
+
+  .wordmark-b-light .name { color: #fff; }
+  .wordmark-b-light .tagline { color: rgba(255,255,255,0.5); }
+
+  .wordmark-c-teal .name { color: #fff; }
+  .wordmark-c-teal .sub { color: rgba(255,255,255,0.7); }
+</style>
+</head>
+<body>
+<h1>Eian Ray — Wordmark Concepts</h1>
+
+<div class="row">
+
+  <!-- A: Tru-North Arrow + Name -->
+  <div class="concept">
+    <div class="concept-label">A — Tru-North (light)</div>
+    <div class="wordmark-a">
+      <!-- North arrow mark -->
+      <svg width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Arrow shaft -->
+        <line x1="22" y1="50" x2="22" y2="4" stroke="#dde4ed" stroke-width="1.5"/>
+        <!-- North half - teal -->
+        <path d="M22 2 L28 20 L22 16 Z" fill="#0a8a8a"/>
+        <!-- South half - dark -->
+        <path d="M22 2 L16 20 L22 16 Z" fill="#0d1f2d"/>
+        <!-- Center dot -->
+        <circle cx="22" cy="26" r="2.5" fill="#0a8a8a"/>
+        <!-- Small N -->
+        <text x="22" y="50" text-anchor="middle" font-family="IBM Plex Sans Condensed, sans-serif" font-size="9" font-weight="700" fill="#0a8a8a" letter-spacing="1">N</text>
+      </svg>
+      <div>
+        <div class="wordmark-a name">EIAN <span>RAY</span></div>
+        <div class="wordmark-a tagline">GIS Consulting &amp; Cartography</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- A dark -->
+  <div class="concept dark">
+    <div class="concept-label" style="color:#445">A — Tru-North (dark)</div>
+    <div class="wordmark-a wordmark-a-light">
+      <svg width="44" height="52" viewBox="0 0 44 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="22" y1="50" x2="22" y2="4" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+        <path d="M22 2 L28 20 L22 16 Z" fill="#3dcccc"/>
+        <path d="M22 2 L16 20 L22 16 Z" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="22" cy="26" r="2.5" fill="#3dcccc"/>
+        <text x="22" y="50" text-anchor="middle" font-family="IBM Plex Sans Condensed, sans-serif" font-size="9" font-weight="700" fill="#3dcccc" letter-spacing="1">N</text>
+      </svg>
+      <div>
+        <div class="wordmark-a-light name" style="font-family:'IBM Plex Sans Condensed',sans-serif;font-size:32px;font-weight:700;color:#fff;letter-spacing:-0.5px;line-height:1;">EIAN <span style="color:#3dcccc">RAY</span></div>
+        <div class="wordmark-a-light tagline" style="font-size:11px;font-weight:500;color:rgba(255,255,255,0.45);letter-spacing:2.5px;text-transform:uppercase;margin-top:5px;">GIS Consulting &amp; Cartography</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <!-- B: Coordinate Cross -->
+  <div class="concept">
+    <div class="concept-label">B — Coordinate Mark (light)</div>
+    <div class="wordmark-b">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Crosshair -->
+        <line x1="24" y1="4" x2="24" y2="44" stroke="#0a8a8a" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="24" x2="44" y2="24" stroke="#0a8a8a" stroke-width="1.5" stroke-linecap="round"/>
+        <!-- Outer circle -->
+        <circle cx="24" cy="24" r="18" stroke="#0a8a8a" stroke-width="1" stroke-dasharray="3 5" opacity="0.4"/>
+        <!-- Inner circle -->
+        <circle cx="24" cy="24" r="6" stroke="#0a8a8a" stroke-width="1.5"/>
+        <!-- Center dot -->
+        <circle cx="24" cy="24" r="2.5" fill="#0a8a8a"/>
+        <!-- Cardinal ticks -->
+        <line x1="24" y1="4" x2="24" y2="9" stroke="#0a8a8a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="24" y1="39" x2="24" y2="44" stroke="#0a8a8a" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="4" y1="24" x2="9" y2="24" stroke="#0a8a8a" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="39" y1="24" x2="44" y2="24" stroke="#0a8a8a" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+      </svg>
+      <div>
+        <div class="wordmark-b name">EIAN RAY</div>
+        <div class="wordmark-b tagline">GIS Consulting &amp; Cartography</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- B dark -->
+  <div class="concept dark">
+    <div class="concept-label" style="color:#445">B — Coordinate Mark (dark)</div>
+    <div class="wordmark-b wordmark-b-light">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="24" y1="4" x2="24" y2="44" stroke="#3dcccc" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="4" y1="24" x2="44" y2="24" stroke="#3dcccc" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="24" cy="24" r="18" stroke="#3dcccc" stroke-width="1" stroke-dasharray="3 5" opacity="0.35"/>
+        <circle cx="24" cy="24" r="6" stroke="#3dcccc" stroke-width="1.5"/>
+        <circle cx="24" cy="24" r="2.5" fill="#3dcccc"/>
+        <line x1="24" y1="4" x2="24" y2="9" stroke="#3dcccc" stroke-width="2" stroke-linecap="round"/>
+        <line x1="24" y1="39" x2="24" y2="44" stroke="#3dcccc" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="4" y1="24" x2="9" y2="24" stroke="#3dcccc" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="39" y1="24" x2="44" y2="24" stroke="#3dcccc" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+      </svg>
+      <div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:28px;font-weight:600;color:#fff;letter-spacing:1px;text-transform:uppercase;line-height:1;">EIAN RAY</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.45);letter-spacing:2px;text-transform:uppercase;margin-top:6px;font-weight:500;">GIS Consulting &amp; Cartography</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <!-- C: Topographic rings -->
+  <div class="concept">
+    <div class="concept-label">C — Topographic (light)</div>
+    <div class="wordmark-c">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Contour rings - nested ellipses -->
+        <ellipse cx="26" cy="30" rx="24" ry="16" stroke="#0a8a8a" stroke-width="1" opacity="0.2"/>
+        <ellipse cx="26" cy="29" rx="18" ry="11" stroke="#0a8a8a" stroke-width="1" opacity="0.4"/>
+        <ellipse cx="26" cy="28" rx="12" ry="7" stroke="#0a8a8a" stroke-width="1.2" opacity="0.6"/>
+        <ellipse cx="26" cy="27" rx="6" ry="3.5" stroke="#0a8a8a" stroke-width="1.5" opacity="0.85"/>
+        <!-- Summit dot -->
+        <circle cx="26" cy="26" r="2.5" fill="#0a8a8a"/>
+        <!-- N tick at top -->
+        <line x1="26" y1="4" x2="26" y2="13" stroke="#0a8a8a" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M22 8 L26 4 L30 8" fill="none" stroke="#0a8a8a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+      <div class="text-block">
+        <div class="wordmark-c name">Eian Ray</div>
+        <div class="wordmark-c sub">GIS · Cartography · Consulting</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- C teal bg -->
+  <div class="concept teal-bg">
+    <div class="concept-label" style="color:rgba(255,255,255,0.45)">C — Topographic (teal bg)</div>
+    <div class="wordmark-c wordmark-c-teal">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="26" cy="30" rx="24" ry="16" stroke="#fff" stroke-width="1" opacity="0.15"/>
+        <ellipse cx="26" cy="29" rx="18" ry="11" stroke="#fff" stroke-width="1" opacity="0.3"/>
+        <ellipse cx="26" cy="28" rx="12" ry="7" stroke="#fff" stroke-width="1.2" opacity="0.5"/>
+        <ellipse cx="26" cy="27" rx="6" ry="3.5" stroke="#fff" stroke-width="1.5" opacity="0.75"/>
+        <circle cx="26" cy="26" r="2.5" fill="#fff"/>
+        <line x1="26" y1="4" x2="26" y2="13" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M22 8 L26 4 L30 8" fill="none" stroke="#fff" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      </svg>
+      <div class="text-block">
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:30px;font-weight:700;color:#fff;letter-spacing:-0.5px;line-height:1;">Eian Ray</div>
+        <div style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.65);letter-spacing:3px;text-transform:uppercase;margin-top:6px;">GIS · Cartography · Consulting</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <!-- D: Fine-line compass -->
+  <div class="concept">
+    <div class="concept-label">D — Fine-Line Compass (light)</div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Outer ring -->
+        <circle cx="26" cy="26" r="24" stroke="#dde4ed" stroke-width="1"/>
+        <!-- Cardinal marks -->
+        <line x1="26" y1="2" x2="26" y2="8" stroke="#0a8a8a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="26" y1="44" x2="26" y2="50" stroke="#0d1f2d" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="2" y1="26" x2="8" y2="26" stroke="#0d1f2d" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <line x1="44" y1="26" x2="50" y2="26" stroke="#0d1f2d" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <!-- Intercardinal ticks -->
+        <line x1="8.7" y1="8.7" x2="11.5" y2="11.5" stroke="#dde4ed" stroke-width="1"/>
+        <line x1="43.3" y1="8.7" x2="40.5" y2="11.5" stroke="#dde4ed" stroke-width="1"/>
+        <line x1="8.7" y1="43.3" x2="11.5" y2="40.5" stroke="#dde4ed" stroke-width="1"/>
+        <line x1="43.3" y1="43.3" x2="40.5" y2="40.5" stroke="#dde4ed" stroke-width="1"/>
+        <!-- Inner circle -->
+        <circle cx="26" cy="26" r="10" stroke="#0a8a8a" stroke-width="1" opacity="0.3"/>
+        <!-- North needle -->
+        <path d="M26 8 L29 26 L26 23 L23 26 Z" fill="#0a8a8a"/>
+        <!-- South needle -->
+        <path d="M26 44 L29 26 L26 29 L23 26 Z" fill="#dde4ed"/>
+        <!-- Center -->
+        <circle cx="26" cy="26" r="2.5" fill="#0d1f2d"/>
+        <circle cx="26" cy="26" r="1" fill="#0a8a8a"/>
+      </svg>
+      <div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:30px;font-weight:600;color:#0d1f2d;letter-spacing:-0.5px;line-height:1;">Eian Ray</div>
+        <div style="font-size:10px;color:#6b7e96;letter-spacing:2.5px;text-transform:uppercase;margin-top:6px;font-weight:500;">GIS Consulting &amp; Cartography</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- D dark -->
+  <div class="concept dark">
+    <div class="concept-label" style="color:#445">D — Fine-Line Compass (dark)</div>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="26" cy="26" r="24" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="26" y1="2" x2="26" y2="8" stroke="#3dcccc" stroke-width="2" stroke-linecap="round"/>
+        <line x1="26" y1="44" x2="26" y2="50" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="2" y1="26" x2="8" y2="26" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="44" y1="26" x2="50" y2="26" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="8.7" y1="8.7" x2="11.5" y2="11.5" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="43.3" y1="8.7" x2="40.5" y2="11.5" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="8.7" y1="43.3" x2="11.5" y2="40.5" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="43.3" y1="43.3" x2="40.5" y2="40.5" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="26" cy="26" r="10" stroke="#3dcccc" stroke-width="1" opacity="0.3"/>
+        <path d="M26 8 L29 26 L26 23 L23 26 Z" fill="#3dcccc"/>
+        <path d="M26 44 L29 26 L26 29 L23 26 Z" fill="rgba(255,255,255,0.2)"/>
+        <circle cx="26" cy="26" r="2.5" fill="#0d1f2d"/>
+        <circle cx="26" cy="26" r="1" fill="#3dcccc"/>
+      </svg>
+      <div>
+        <div style="font-family:'IBM Plex Sans',sans-serif;font-size:30px;font-weight:600;color:#fff;letter-spacing:-0.5px;line-height:1;">Eian Ray</div>
+        <div style="font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:2.5px;text-transform:uppercase;margin-top:6px;font-weight:500;">GIS Consulting &amp; Cartography</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

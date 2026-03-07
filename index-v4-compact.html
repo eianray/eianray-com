@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="deep-ocean">
+<html lang="en" data-theme="professional">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,70 +7,30 @@
 <meta name="description" content="Your GIS is slowing you down. GIS consulting, implementation, and cartographic services for local government, utilities, and land management agencies.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; overflow-x: hidden; }
+body { font-family: 'IBM Plex Sans', -apple-system, sans-serif; line-height: 1.7; overflow-x: hidden; }
 a { text-decoration: none; transition: color 0.3s; }
 img { max-width: 100%; display: block; }
 
-/* ── Theme: Deep Ocean (Blues — the Sound & ocean) ── */
-[data-theme="deep-ocean"] {
-  --bg: #060a14; --bg-secondary: #0c1222; --bg-card: #111a2e;
-  --bg-card-hover: #162040; --text: #e2e8f0; --text-secondary: #94a3b8;
-  --text-muted: #64748b; --accent: #60a5fa; --accent-bright: #93c5fd;
-  --accent-dim: rgba(96,165,250,0.12); --accent-glow: rgba(96,165,250,0.25);
-  --border: rgba(148,163,184,0.08); --nav-bg: rgba(6,10,20,0.85);
-  --heading: #f1f5f9; --price-color: #60a5fa; --hero-overlay: rgba(6,10,20,0.6);
-  --gradient-start: #0a0e1a; --gradient-mid: #0f1b35; --gradient-end: #060a14;
-  --glow-1: rgba(96,165,250,0.15); --glow-2: rgba(139,92,246,0.1);
-  --timeline-line: rgba(96,165,250,0.2); --timeline-dot: #60a5fa;
-  --timeline-dot-current: #34d399; --placeholder-bg: #0d1525; --placeholder-border: #1e2d4a;
-  --theme-dot: #60a5fa;
-}
-
-/* ── Theme: Deep Forest (PNW evergreen — greens, bark, fog) ── */
-[data-theme="deep-forest"] {
-  --bg: #0e110d; --bg-secondary: #151a12; --bg-card: #1a2117;
-  --bg-card-hover: #222c1e; --text: #dddad0; --text-secondary: #a8a496;
-  --text-muted: #726e62; --accent: #7faa8b; --accent-bright: #a3c4ab;
-  --accent-dim: rgba(127,170,139,0.10); --accent-glow: rgba(127,170,139,0.18);
-  --border: rgba(168,164,150,0.08); --nav-bg: rgba(14,17,13,0.88);
-  --heading: #eae7de; --price-color: #7faa8b; --hero-overlay: rgba(14,17,13,0.6);
-  --gradient-start: #0e110d; --gradient-mid: #171e14; --gradient-end: #0e110d;
-  --glow-1: rgba(127,170,139,0.10); --glow-2: rgba(180,155,100,0.06);
-  --timeline-line: rgba(127,170,139,0.2); --timeline-dot: #7faa8b;
-  --timeline-dot-current: #d4a55a; --placeholder-bg: #151a12; --placeholder-border: #2e3528;
-  --theme-dot: #7faa8b;
-  --fog: rgba(200,198,190,0.04); --bark: #6b5d4a; --bark-dim: rgba(107,93,74,0.10);
-}
-/* Forest-specific card warmth */
-[data-theme="deep-forest"] .service-card,
-[data-theme="deep-forest"] .testimonial-card,
-[data-theme="deep-forest"] .project-card {
-  background: linear-gradient(160deg, var(--bg-card), rgba(42,36,28,0.3));
-}
-[data-theme="deep-forest"] .hero-bg {
-  background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--glow-1), transparent),
-    radial-gradient(ellipse 50% 40% at 75% 70%, var(--glow-2), transparent),
-    radial-gradient(ellipse 40% 30% at 20% 50%, rgba(107,93,74,0.06), transparent),
-    linear-gradient(180deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-}
-
-/* ── Theme: Warm Earth (Browns & amber — Eastern Washington) ── */
-[data-theme="warm-earth"] {
-  --bg: #12100d; --bg-secondary: #1a1610; --bg-card: #231d15;
-  --bg-card-hover: #2e2519; --text: #e8ddd0; --text-secondary: #b8a898;
-  --text-muted: #8a7a6a; --accent: #d4915e; --accent-bright: #e5a873;
-  --accent-dim: rgba(212,145,94,0.12); --accent-glow: rgba(212,145,94,0.2);
-  --border: rgba(184,168,152,0.08); --nav-bg: rgba(18,16,13,0.9);
-  --heading: #f0e6da; --price-color: #d4915e; --hero-overlay: rgba(18,16,13,0.6);
-  --gradient-start: #12100d; --gradient-mid: #1a1610; --gradient-end: #12100d;
-  --glow-1: rgba(212,145,94,0.15); --glow-2: rgba(180,120,60,0.1);
-  --timeline-line: rgba(212,145,94,0.2); --timeline-dot: #d4915e;
-  --timeline-dot-current: #a3e635; --placeholder-bg: #1a1610; --placeholder-border: #3d3327;
-  --theme-dot: #d4915e;
+/* ── Theme: Professional (teal/maritime — Bainbridge meets NOAA chart) ── */
+[data-theme="deep-ocean"],
+[data-theme="deep-forest"],
+[data-theme="warm-earth"],
+[data-theme="professional"] {
+  --bg: #ffffff; --bg-secondary: #f4f7fb; --bg-card: #ffffff;
+  --bg-card-hover: #f0f5fc; --text: #1a2332; --text-secondary: #3d526b;
+  --text-muted: #6b7e96; --accent: #0a8a8a; --accent-bright: #0fb8b8;
+  --accent-dim: rgba(10,138,138,0.08); --accent-glow: rgba(10,138,138,0.15);
+  --border: #dde4ed; --nav-bg: rgba(255,255,255,0.97);
+  --heading: #0d1f2d; --price-color: #0a8a8a; --hero-overlay: rgba(244,247,251,0.6);
+  --gradient-start: #f4f7fb; --gradient-mid: #edf2f9; --gradient-end: #f4f7fb;
+  --glow-1: rgba(10,138,138,0.07); --glow-2: rgba(10,138,138,0.04);
+  --timeline-line: rgba(10,138,138,0.2); --timeline-dot: #0a8a8a;
+  --timeline-dot-current: #b03030; --placeholder-bg: #f4f7fb; --placeholder-border: #dde4ed;
+  --theme-dot: #0a8a8a;
 }
 
 body { background: var(--bg); color: var(--text); transition: background 0.6s, color 0.6s; }
@@ -89,12 +49,12 @@ body { background: var(--bg); color: var(--text); transition: background 0.6s, c
 /* ── Nav ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: var(--nav-bg); backdrop-filter: blur(20px) saturate(1.8);
+  background: var(--nav-bg); border-bottom: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   padding: 0 48px; height: 64px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--heading); letter-spacing: -0.5px; }
+.nav-logo { font-family: 'IBM Plex Sans', sans-serif; font-size: 22px; font-weight: 700; color: var(--heading); letter-spacing: -0.5px; }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--accent); }
@@ -116,7 +76,7 @@ nav {
 .dropdown-logo {
   width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 14px; font-family: 'Inter', sans-serif;
+  font-weight: 800; font-size: 14px; font-family: 'IBM Plex Sans', sans-serif;
   overflow: hidden;
 }
 .dropdown-logo img { width: 100%; height: 100%; border-radius: 6px; object-fit: contain; }
@@ -125,7 +85,7 @@ nav {
 .dropdown-logo.ma-logo { background: transparent; }
 
 /* ── Theme picker dots ── */
-.theme-picker { display: flex; align-items: center; gap: 8px; }
+.theme-picker { display: none; }
 .theme-dot {
   width: 16px; height: 16px; border-radius: 50%; cursor: pointer; border: 2px solid transparent;
   transition: all 0.3s ease; position: relative;
@@ -164,7 +124,7 @@ nav {
 .hero-content { position: relative; z-index: 1; max-width: 800px; }
 .hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
 .hero h1 {
-  font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5.5rem);
+  font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem);
   font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 28px; letter-spacing: -2px;
 }
 .hero-accent { background: linear-gradient(135deg, var(--accent), var(--accent-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -187,7 +147,7 @@ nav {
 section { padding: 120px 24px; }
 .section-inner { max-width: 1100px; margin: 0 auto; }
 .section-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); text-align: center; margin-bottom: 16px; }
-.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3rem); color: var(--heading); text-align: center; margin-bottom: 16px; letter-spacing: -1px; }
+.section-title { font-family: 'IBM Plex Sans', sans-serif; font-size: clamp(2rem, 4.5vw, 3rem); color: var(--heading); text-align: center; margin-bottom: 16px; letter-spacing: -1px; }
 .section-subtitle { text-align: center; color: var(--text-secondary); font-size: 16px; max-width: 580px; margin: 0 auto 64px; line-height: 1.7; }
 .divider { width: 48px; height: 3px; border-radius: 2px; margin: 0 auto 48px; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); }
 
@@ -220,7 +180,7 @@ section { padding: 120px 24px; }
 
 /* ── Services ── */
 .services-section-title {
-  font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--heading);
+  font-family: 'IBM Plex Sans', sans-serif; font-size: 1.3rem; color: var(--heading);
   margin-bottom: 8px; margin-top: 48px; padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
@@ -231,6 +191,7 @@ section { padding: 120px 24px; }
 .service-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
   padding: 32px; transition: all 0.4s ease; position: relative; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(13,31,45,0.06);
 }
 .service-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
@@ -249,8 +210,8 @@ section { padding: 120px 24px; }
 .placeholder-inner .text { font-size: 13px; font-weight: 500; }
 .service-name { font-size: 17px; font-weight: 700; color: var(--heading); margin-bottom: 10px; }
 .service-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
-.service-price { font-size: 24px; font-weight: 800; color: var(--price-color); font-family: 'Playfair Display', serif; }
-.service-price-sub { font-size: 13px; color: var(--text-muted); font-weight: 400; font-family: 'Inter', sans-serif; }
+.service-price { font-size: 24px; font-weight: 800; color: var(--price-color); font-family: 'IBM Plex Sans', sans-serif; }
+.service-price-sub { font-size: 13px; color: var(--text-muted); font-weight: 400; font-family: 'IBM Plex Sans', sans-serif; }
 
 /* ── Testimonials ── */
 .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
@@ -260,7 +221,7 @@ section { padding: 120px 24px; }
 }
 .testimonial-card::before {
   content: '"'; position: absolute; top: 16px; left: 24px;
-  font-family: 'Playfair Display', serif; font-size: 64px; color: var(--accent);
+  font-family: 'IBM Plex Sans', sans-serif; font-size: 64px; color: var(--accent);
   opacity: 0.15; line-height: 1;
 }
 .testimonial-quote { font-size: 15px; color: var(--text); line-height: 1.8; font-style: italic; margin-bottom: 20px; padding-top: 8px; }
@@ -312,7 +273,7 @@ section { padding: 120px 24px; }
 .photo-placeholder-text { font-size: 13px; color: var(--text-muted); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
 
 /* ── Footer ── */
-footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; }
+footer { text-align: center; padding: 48px 24px; background: #0d1f2d; color: rgba(255,255,255,0.45); font-size: 13px; }
 .placeholder-notice { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 16px; font-style: italic; }
 @media (max-width: 768px) {
   section { padding: 80px 20px; }
@@ -361,74 +322,44 @@ footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--bor
   </ul>
 </nav>
 
-<!-- ── Hero ── -->
-<section class="hero" id="top">
-  <div class="hero-bg"></div>
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <div class="hero-orb hero-orb-3"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow fade-up">GIS Consulting &amp; Implementation</div>
-    <h1 class="fade-up-d1">Your GIS Is<br><span class="hero-accent">Slowing You Down.</span></h1>
-    <p class="fade-up-d2">Bad data, outdated maps, and systems nobody knows how to use cost your team time every day. I fix that.</p>
-    <a href="#services" class="hero-cta fade-up-d3">See What I Offer &rarr;</a>
-  </div>
-</section>
+<!-- ── Hero (Compact) ── -->
+<section id="top" style="background:var(--bg); border-bottom:1px solid var(--border); padding: 128px 24px 56px;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-direction:column; align-items:center; text-align:center;">
 
-<!-- ── Projects ── -->
-<section id="projects" style="background: var(--bg-secondary);">
-  <div class="section-inner">
-    <span class="section-label reveal">Projects</span>
-    <h2 class="section-title reveal">Things I've Built</h2>
-    <div class="divider reveal"></div>
-    <div class="projects-row">
-
-      <div class="project-card reveal">
-        <div class="project-img-wrap" style="background:#f7931a; display:flex; align-items:center; justify-content:center;">
-          <img src="assets/drawbridge-favicon-a.svg" alt="DrawBridge logo" style="width:85px; height:85px; object-fit:contain; border:2px solid #000; border-radius:6px;" loading="lazy">
-        </div>
-        <div class="project-body">
-          <div class="project-name">DrawBridge</div>
-          <div class="project-desc">A PDF-to-GIS georeferencing tool for digitizing as-built drawings. Upload construction PDFs, align them to a basemap, trace features, and export ready-to-use geodatabases — no desktop GIS required.</div>
-          <a href="https://drawbridgegis.com" target="_blank" class="project-link">drawbridgegis.com &rarr;</a>
-        </div>
+    <!-- Wordmark -->
+    <div class="fade-up" style="display:flex; align-items:center; gap:22px; margin-bottom:36px;">
+      <svg width="68" height="68" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="29" cy="29" r="27" stroke="var(--accent)" stroke-width="1.5"/>
+        <circle cx="29" cy="29" r="23.5" stroke="var(--accent)" stroke-width="0.5" opacity="0.3"/>
+        <line x1="29" y1="2" x2="29" y2="7.5" stroke="#b03030" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="29" y1="50.5" x2="29" y2="56" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+        <line x1="2" y1="29" x2="7.5" y2="29" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+        <line x1="50.5" y1="29" x2="56" y2="29" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+        <line x1="10" y1="10" x2="12.5" y2="12.5" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="48" y1="10" x2="45.5" y2="12.5" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="10" y1="48" x2="12.5" y2="45.5" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <line x1="48" y1="48" x2="45.5" y2="45.5" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        <path d="M29 7.5 L32 29 L29 25 L26 29 Z" fill="#b03030"/>
+        <path d="M29 50.5 L32 29 L29 33 L26 29 Z" fill="var(--border)"/>
+        <circle cx="29" cy="29" r="3.5" fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.5"/>
+        <circle cx="29" cy="29" r="1.5" fill="var(--heading)"/>
+      </svg>
+      <div style="text-align:left;">
+        <div style="font-family:'IBM Plex Sans Condensed','IBM Plex Sans',sans-serif; font-size:48px; font-weight:700; color:var(--heading); text-transform:uppercase; letter-spacing:0.5px; line-height:1;">Eian Ray</div>
+        <div style="font-size:11px; color:var(--accent); letter-spacing:3px; text-transform:uppercase; margin-top:8px; font-weight:600;">GIS Consulting &amp; Cartography</div>
       </div>
-
-      <div class="project-card reveal">
-        <div class="project-img-wrap" style="background:#8b2942; display:flex; align-items:center; justify-content:center;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120" style="flex-shrink:0;">
-            <g fill="none" stroke="#ffffff" stroke-width="6.75" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M 50 140 L 50 60 L 100 100 L 150 60 L 150 140"/>
-            </g>
-            <line x1="100" y1="50" x2="100" y2="156" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.3" stroke-dasharray="5 8"/>
-            <circle cx="100" cy="40" r="6" fill="#ffffff" opacity="0.5"/>
-            <text x="100" y="186" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="3" opacity="0.6">MERIDIAN</text>
-          </svg>
-        </div>
-        <div class="project-body">
-          <div class="project-name">Meridian API</div>
-          <div class="project-desc">A geospatial API and MCP server for AI-powered GIS workflows. Validate, repair, reproject, convert, buffer, and dissolve spatial data — all via REST or model context protocol.</div>
-          <a href="https://nodeapi.ai" target="_blank" class="project-link">nodeapi.ai &rarr;</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-img-wrap" style="background:#000; display:flex; align-items:center; justify-content:center;">
-          <img src="assets/redmapper-favicon.png" alt="RedMapper logo" style="width:100px; height:auto; object-fit:contain;" loading="lazy">
-        </div>
-        <div class="project-body">
-          <div class="project-name">RedMapper</div>
-          <div class="project-desc">A planetary atlas and web mapping service. Interactive 3D portals for Mars, Mercury, Venus, and the Moon — exploring other worlds, one map at a time.</div>
-          <a href="https://www.redmapper.com" target="_blank" class="project-link">redmapper.com &rarr;</a>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Problem statement — compact -->
+    <h2 class="fade-up-d1" style="font-size:clamp(1.5rem,3.5vw,2.4rem); font-weight:700; color:var(--heading); max-width:700px; line-height:1.25; margin-bottom:16px; letter-spacing:-0.5px;">Bad data, outdated maps, and systems nobody uses cost your team time every day.</h2>
+    <p class="fade-up-d2" style="font-size:16px; color:var(--text-secondary); max-width:560px; line-height:1.7; margin-bottom:32px;">I help local governments, utilities, and land management agencies fix their GIS — quickly, affordably, and without the enterprise overhead.</p>
+    <a href="#services" class="hero-cta fade-up-d3" style="font-size:14px; padding:13px 28px;">See What I Offer &rarr;</a>
+
   </div>
 </section>
 
 <!-- ── Services ── -->
-<section id="services">
+<section id="services" style="background: var(--bg-secondary);">
   <div class="section-inner">
     <span class="section-label reveal">Services</span>
     <h2 class="section-title reveal">Services &amp; Pricing</h2>
@@ -495,6 +426,58 @@ footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--bor
               <div class="text">More coming soon</div>
             </div>
           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Projects ── -->
+<section id="projects">
+  <div class="section-inner">
+    <span class="section-label reveal">Projects</span>
+    <h2 class="section-title reveal">Things I've Built</h2>
+    <div class="divider reveal"></div>
+    <div class="projects-row">
+
+      <div class="project-card reveal">
+        <div class="project-img-wrap" style="background:#f7931a; display:flex; align-items:center; justify-content:center;">
+          <img src="assets/drawbridge-favicon-a.svg" alt="DrawBridge logo" style="width:85px; height:85px; object-fit:contain; border:2px solid #000; border-radius:6px;" loading="lazy">
+        </div>
+        <div class="project-body">
+          <div class="project-name">DrawBridge</div>
+          <div class="project-desc">A PDF-to-GIS georeferencing tool for digitizing as-built drawings. Upload construction PDFs, align them to a basemap, trace features, and export ready-to-use geodatabases — no desktop GIS required.</div>
+          <a href="https://drawbridgegis.com" target="_blank" class="project-link">drawbridgegis.com &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img-wrap" style="background:#8b2942; display:flex; align-items:center; justify-content:center;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120" style="flex-shrink:0;">
+            <g fill="none" stroke="#ffffff" stroke-width="6.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 50 140 L 50 60 L 100 100 L 150 60 L 150 140"/>
+            </g>
+            <line x1="100" y1="50" x2="100" y2="156" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.3" stroke-dasharray="5 8"/>
+            <circle cx="100" cy="40" r="6" fill="#ffffff" opacity="0.5"/>
+            <text x="100" y="186" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="3" opacity="0.6">MERIDIAN</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Meridian API</div>
+          <div class="project-desc">A geospatial API and MCP server for AI-powered GIS workflows. Validate, repair, reproject, convert, buffer, and dissolve spatial data — all via REST or model context protocol.</div>
+          <a href="https://nodeapi.ai" target="_blank" class="project-link">nodeapi.ai &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img-wrap" style="background:#000; display:flex; align-items:center; justify-content:center;">
+          <img src="assets/redmapper-favicon.png" alt="RedMapper logo" style="width:100px; height:auto; object-fit:contain;" loading="lazy">
+        </div>
+        <div class="project-body">
+          <div class="project-name">RedMapper</div>
+          <div class="project-desc">A planetary atlas and web mapping service. Interactive 3D portals for Mars, Mercury, Venus, and the Moon — exploring other worlds, one map at a time.</div>
+          <a href="https://www.redmapper.com" target="_blank" class="project-link">redmapper.com &rarr;</a>
         </div>
       </div>
 

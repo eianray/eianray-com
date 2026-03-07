@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DrawBridge — D + Trapezoid Variants</title>
+<style>
+body { background: #111; color: #ccc; font-family: -apple-system, sans-serif; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+h1 { font-size: 28px; color: #fff; }
+h2 { font-size: 18px; color: #888; font-weight: 400; }
+.row { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
+.card { text-align: center; }
+.card h3 { margin: 16px 0 4px; font-size: 15px; color: #fff; }
+.card p { font-size: 12px; color: #666; max-width: 200px; margin: 0 auto; }
+hr { border: none; border-top: 1px solid #222; width: 100%; max-width: 900px; }
+.sizes { display: flex; gap: 16px; align-items: end; justify-content: center; margin-top: 8px; }
+.sizes > div { text-align: center; }
+.sizes .label { font-size: 11px; color: #555; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>DrawBridge — D Frame + Trapezoid</h1>
+<h2>D rotated: straight edge bottom, curve over top. Letter proportions.</h2>
+
+<div class="row">
+
+  <!-- V1: D outline (stroke) framing trapezoid, on orange -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- D shape: straight bottom edge, curve arches over. Rotated D proportions.
+           A D is taller than it is wide, so when rotated the arch is wider than tall. -->
+      <path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z"
+        fill="none" stroke="#141b24" stroke-width="8" stroke-linejoin="round"/>
+      <!-- Trapezoid bridge -->
+      <polygon points="35,155 165,155 130,100 70,100" fill="#141b24"/>
+    </svg>
+    <h3>V1 — D Outline</h3>
+    <p>D as a stroke outline framing the trapezoid. Clean, letterform reads clearly.</p>
+  </div>
+
+  <!-- V2: D filled, trapezoid inside, on orange -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- Filled D shape -->
+      <path d="M 35,160 L 165,160 A 65,60 0 0 0 165,40 L 35,40 Z" fill="#141b24"/>
+      <!-- Orange interior to create the D "counter" (hole) -->
+      <path d="M 48,150 L 152,150 A 52,48 0 0 0 152,54 L 48,54 Z" fill="#f7931a"/>
+      <!-- Trapezoid bridge back in black -->
+      <polygon points="40,158 160,158 128,105 72,105" fill="#141b24"/>
+    </svg>
+    <h3>V2 — Filled D + Bridge</h3>
+    <p>Solid D with counter cutout. Trapezoid overlaps bottom. More weight.</p>
+  </div>
+
+  <!-- V3: Just D outline + trapezoid, no fill, thinner -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- D outline, thinner stroke -->
+      <path d="M 38,155 L 162,155 A 62,55 0 0 0 162,45 L 38,45 L 38,155 Z"
+        fill="none" stroke="#141b24" stroke-width="5"/>
+      <!-- Trapezoid -->
+      <polygon points="38,155 162,155 130,102 70,102" fill="#141b24"/>
+    </svg>
+    <h3>V3 — Thin D</h3>
+    <p>Lighter D stroke. Trapezoid does the heavy lifting. D is the frame.</p>
+  </div>
+
+  <!-- V4: D outline, trapezoid slightly separated from bottom -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- D outline -->
+      <path d="M 35,158 L 165,158 A 65,58 0 0 0 165,42 L 35,42 L 35,158 Z"
+        fill="none" stroke="#141b24" stroke-width="7" stroke-linejoin="round"/>
+      <!-- Trapezoid, anchored to bottom of D -->
+      <polygon points="35,158 165,158 132,105 68,105" fill="#141b24" opacity="0.9"/>
+    </svg>
+    <h3>V4 — Heavy D</h3>
+    <p>Heavier D stroke, bridge fills bottom half. Good balance.</p>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>Same concepts — dark background, orange elements</h2>
+
+<div class="row">
+
+  <!-- V1 dark -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z"
+        fill="none" stroke="#f7931a" stroke-width="8" stroke-linejoin="round"/>
+      <polygon points="35,155 165,155 130,100 70,100" fill="#f7931a"/>
+    </svg>
+    <h3>V1 Dark</h3>
+  </div>
+
+  <!-- V2 dark -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 35,160 L 165,160 A 65,60 0 0 0 165,40 L 35,40 Z" fill="#f7931a"/>
+      <path d="M 48,150 L 152,150 A 52,48 0 0 0 152,54 L 48,54 Z" fill="#141b24"/>
+      <polygon points="40,158 160,158 128,105 72,105" fill="#f7931a"/>
+    </svg>
+    <h3>V2 Dark</h3>
+  </div>
+
+  <!-- V3 dark -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 38,155 L 162,155 A 62,55 0 0 0 162,45 L 38,45 L 38,155 Z"
+        fill="none" stroke="#f7931a" stroke-width="5"/>
+      <polygon points="38,155 162,155 130,102 70,102" fill="#f7931a"/>
+    </svg>
+    <h3>V3 Dark</h3>
+  </div>
+
+  <!-- V4 dark -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 35,158 L 165,158 A 65,58 0 0 0 165,42 L 35,42 L 35,158 Z"
+        fill="none" stroke="#f7931a" stroke-width="7" stroke-linejoin="round"/>
+      <polygon points="35,158 165,158 132,105 68,105" fill="#f7931a" opacity="0.9"/>
+    </svg>
+    <h3>V4 Dark</h3>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>Favicon scale — V1 &amp; V4</h2>
+<div class="row">
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z" fill="none" stroke="#141b24" stroke-width="8" stroke-linejoin="round"/><polygon points="35,155 165,155 130,100 70,100" fill="#141b24"/></svg>
+        <div class="label">V1 · 64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z" fill="none" stroke="#141b24" stroke-width="10" stroke-linejoin="round"/><polygon points="35,155 165,155 130,100 70,100" fill="#141b24"/></svg>
+        <div class="label">V1 · 32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z" fill="none" stroke="#141b24" stroke-width="14" stroke-linejoin="round"/><polygon points="35,155 165,155 130,100 70,100" fill="#141b24"/></svg>
+        <div class="label">V1 · 16</div>
+      </div>
+    </div>
+    <h3>V1 Orange Scale</h3>
+  </div>
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 35,158 L 165,158 A 65,58 0 0 0 165,42 L 35,42 L 35,158 Z" fill="none" stroke="#141b24" stroke-width="7" stroke-linejoin="round"/><polygon points="35,158 165,158 132,105 68,105" fill="#141b24"/></svg>
+        <div class="label">V4 · 64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 35,158 L 165,158 A 65,58 0 0 0 165,42 L 35,42 L 35,158 Z" fill="none" stroke="#141b24" stroke-width="10" stroke-linejoin="round"/><polygon points="35,158 165,158 132,105 68,105" fill="#141b24"/></svg>
+        <div class="label">V4 · 32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 35,158 L 165,158 A 65,58 0 0 0 165,42 L 35,42 L 35,158 Z" fill="none" stroke="#141b24" stroke-width="14" stroke-linejoin="round"/><polygon points="35,158 165,158 132,105 68,105" fill="#141b24"/></svg>
+        <div class="label">V4 · 16</div>
+      </div>
+    </div>
+    <h3>V4 Orange Scale</h3>
+  </div>
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z" fill="none" stroke="#f7931a" stroke-width="8" stroke-linejoin="round"/><polygon points="35,155 165,155 130,100 70,100" fill="#f7931a"/></svg>
+        <div class="label">V1 · 64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z" fill="none" stroke="#f7931a" stroke-width="10" stroke-linejoin="round"/><polygon points="35,155 165,155 130,100 70,100" fill="#f7931a"/></svg>
+        <div class="label">V1 · 32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 35,155 L 165,155 A 65,55 0 0 0 165,45 L 35,45 L 35,155 Z" fill="none" stroke="#f7931a" stroke-width="14" stroke-linejoin="round"/><polygon points="35,155 165,155 130,100 70,100" fill="#f7931a"/></svg>
+        <div class="label">V1 · 16</div>
+      </div>
+    </div>
+    <h3>V1 Dark Scale</h3>
+  </div>
+</div>
+
+</body>
+</html>

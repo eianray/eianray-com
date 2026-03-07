@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- ER with single evergreen tree between letters -->
+  <rect width="200" height="200" rx="20" fill="#0d1210"/>
+  <g fill="none" stroke="#c8d4cc" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- E -->
+    <path d="M 30 62 L 30 138"/>
+    <path d="M 30 62 L 60 62"/>
+    <path d="M 30 100 L 54 100"/>
+    <path d="M 30 138 L 60 138"/>
+    <!-- Single evergreen tree (center) -->
+    <path d="M 100 48 L 82 88 L 90 88 L 76 118 L 86 118 L 72 148"/>
+    <path d="M 100 48 L 118 88 L 110 88 L 124 118 L 114 118 L 128 148"/>
+    <path d="M 100 148 L 100 164"/>
+    <!-- R -->
+    <path d="M 148 62 L 148 138"/>
+    <path d="M 148 62 L 168 62 Q 180 62 180 76 Q 180 90 168 90 L 148 90"/>
+    <path d="M 164 90 L 180 138"/>
+  </g>
+</svg>

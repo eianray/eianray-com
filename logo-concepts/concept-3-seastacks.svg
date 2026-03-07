@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Minimal seastack silhouettes with ER below — confident, grounded -->
+  <rect width="200" height="200" rx="20" fill="#0d1210"/>
+  <!-- Seastacks / shoreline -->
+  <g fill="#c8d4cc" opacity="0.9">
+    <!-- Tall stack -->
+    <path d="M 60 68 Q 65 56 70 68 L 74 110 Q 67 112 56 110 Z"/>
+    <!-- Medium stack -->
+    <path d="M 90 82 Q 97 70 104 82 L 108 110 Q 99 113 86 110 Z"/>
+    <!-- Small stack -->
+    <path d="M 126 92 Q 130 84 134 92 L 137 110 Q 131 112 123 110 Z"/>
+  </g>
+  <!-- Waterline -->
+  <line x1="36" y1="114" x2="164" y2="114" stroke="#c8d4cc" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <!-- ER text -->
+  <g fill="none" stroke="#c8d4cc" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- E -->
+    <path d="M 62 134 L 62 168"/>
+    <path d="M 62 134 L 82 134"/>
+    <path d="M 62 151 L 78 151"/>
+    <path d="M 62 168 L 82 168"/>
+    <!-- R -->
+    <path d="M 104 134 L 104 168"/>
+    <path d="M 104 134 L 122 134 Q 131 134 131 144 Q 131 154 122 154 L 104 154"/>
+    <path d="M 118 154 L 132 168"/>
+  </g>
+</svg>

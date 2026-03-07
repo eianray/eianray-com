@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DrawBridge — V2a White Trapezoid</title>
+<style>
+body { background: #111; color: #ccc; font-family: -apple-system, sans-serif; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+h1 { font-size: 28px; color: #fff; }
+h2 { font-size: 18px; color: #888; font-weight: 400; }
+.row { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
+.card { text-align: center; }
+.card h3 { margin: 14px 0 4px; font-size: 14px; color: #fff; }
+.card p { font-size: 11px; color: #666; max-width: 200px; margin: 0 auto; line-height: 1.5; }
+hr { border: none; border-top: 1px solid #222; width: 100%; max-width: 900px; }
+.sizes { display: flex; gap: 16px; align-items: end; justify-content: center; margin-top: 8px; }
+.sizes > div { text-align: center; }
+.sizes .label { font-size: 11px; color: #555; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>DrawBridge — V2a White Trapezoid</h1>
+
+<div class="row">
+
+  <!-- Original V2a for reference -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/>
+    </svg>
+    <h3>V2a Original</h3>
+    <p>All black. For reference.</p>
+  </div>
+
+  <!-- V2a white trapezoid on orange -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#ffffff"/>
+    </svg>
+    <h3>V2a — White Bridge</h3>
+    <p>White trapezoid pops out of the dark D. Bridge is bright, visible, the focal point.</p>
+  </div>
+
+  <!-- V2a off-white / cream trapezoid -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#f0e6d6"/>
+    </svg>
+    <h3>V2a — Cream Bridge</h3>
+    <p>Softer off-white. Less stark contrast, more organic.</p>
+  </div>
+
+  <!-- V2a white at partial opacity -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#ffffff" opacity="0.8"/>
+    </svg>
+    <h3>V2a — Soft White</h3>
+    <p>White at 80% opacity. A touch of the dark bleeds through. Balanced.</p>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>Dark background versions</h2>
+
+<div class="row">
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#f7931a"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#ffffff"/>
+    </svg>
+    <h3>Dark — White Bridge</h3>
+  </div>
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#f7931a"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#f0e6d6"/>
+    </svg>
+    <h3>Dark — Cream Bridge</h3>
+  </div>
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#f7931a"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#ffffff" opacity="0.8"/>
+    </svg>
+    <h3>Dark — Soft White</h3>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>Favicon scale — white bridge</h2>
+<div class="row">
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/><polygon points="30,160 170,160 135,105 65,105" fill="#fff"/></svg>
+        <div class="label">64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/><polygon points="30,160 170,160 135,105 65,105" fill="#fff"/></svg>
+        <div class="label">32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#f7931a"/><path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#141b24"/><polygon points="30,160 170,160 135,105 65,105" fill="#fff"/></svg>
+        <div class="label">16</div>
+      </div>
+    </div>
+    <h3>Orange</h3>
+  </div>
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#f7931a"/><polygon points="30,160 170,160 135,105 65,105" fill="#fff"/></svg>
+        <div class="label">64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#f7931a"/><polygon points="30,160 170,160 135,105 65,105" fill="#fff"/></svg>
+        <div class="label">32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#141b24"/><path d="M 30,160 L 170,160 L 170,118 C 170,62 30,62 30,118 Z" fill="#f7931a"/><polygon points="30,160 170,160 135,105 65,105" fill="#fff"/></svg>
+        <div class="label">16</div>
+      </div>
+    </div>
+    <h3>Dark</h3>
+  </div>
+</div>
+
+</body>
+</html>

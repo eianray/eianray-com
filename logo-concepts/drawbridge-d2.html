@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DrawBridge — D on its back</title>
+<style>
+body { background: #111; color: #ccc; font-family: -apple-system, sans-serif; padding: 40px; display: flex; flex-direction: column; align-items: center; gap: 48px; }
+h1 { font-size: 28px; color: #fff; }
+h2 { font-size: 18px; color: #888; font-weight: 400; }
+.row { display: flex; gap: 36px; flex-wrap: wrap; justify-content: center; }
+.card { text-align: center; }
+.card h3 { margin: 16px 0 4px; font-size: 15px; color: #fff; }
+.card p { font-size: 12px; color: #666; max-width: 200px; margin: 0 auto; }
+hr { border: none; border-top: 1px solid #222; width: 100%; max-width: 900px; }
+.sizes { display: flex; gap: 16px; align-items: end; justify-content: center; margin-top: 8px; }
+.sizes > div { text-align: center; }
+.sizes .label { font-size: 11px; color: #555; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>DrawBridge — D Laid on its Back</h1>
+<h2>Straight spine horizontal along bottom, curve arches up over the trapezoid</h2>
+
+<div class="row">
+
+  <!-- V1: D outline, curve is D-proportioned (wider than tall) -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- Trapezoid -->
+      <polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/>
+      <!-- D on its back: straight line bottom, curve arches up
+           The D's curve is NOT a semicircle - it's the bump of a D, wider than tall -->
+      <path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,70 170,70 170,160" fill="none" stroke="#141b24" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <h3>V1 — D Outline</h3>
+    <p>D spine along bottom of trapezoid. Curve arches over. Stroke only.</p>
+  </div>
+
+  <!-- V2: Tighter curve, more D-shaped (not as tall) -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- Trapezoid -->
+      <polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/>
+      <!-- D with flatter curve - more like actual D proportions -->
+      <path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#141b24" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <h3>V2 — Flatter D</h3>
+    <p>Flatter curve, more true to D letterform proportions.</p>
+  </div>
+
+  <!-- V3: Even more subtle D curve -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- Trapezoid -->
+      <polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/>
+      <!-- D curve just barely clears the top of the trapezoid -->
+      <path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,92 170,92 170,160" fill="none" stroke="#141b24" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <h3>V3 — Snug D</h3>
+    <p>Curve hugs closer to the trapezoid. Tighter composition.</p>
+  </div>
+
+  <!-- V4: Heavier stroke -->
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#f7931a"/>
+      <!-- Trapezoid -->
+      <polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/>
+      <!-- Heavier D -->
+      <path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="10" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,80 170,80 170,160" fill="none" stroke="#141b24" stroke-width="10" stroke-linecap="round"/>
+    </svg>
+    <h3>V4 — Heavy D</h3>
+    <p>Thicker stroke. More presence at small sizes.</p>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>Dark background versions</h2>
+
+<div class="row">
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,70 170,70 170,160" fill="none" stroke="#f7931a" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <h3>V1 Dark</h3>
+  </div>
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#f7931a" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <h3>V2 Dark</h3>
+  </div>
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="7" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,92 170,92 170,160" fill="none" stroke="#f7931a" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <h3>V3 Dark</h3>
+  </div>
+
+  <div class="card">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="180" height="180">
+      <rect width="200" height="200" rx="20" fill="#141b24"/>
+      <polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/>
+      <path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="10" stroke-linecap="round"/>
+      <path d="M 30,160 C 30,80 170,80 170,160" fill="none" stroke="#f7931a" stroke-width="10" stroke-linecap="round"/>
+    </svg>
+    <h3>V4 Dark</h3>
+  </div>
+
+</div>
+
+<hr>
+
+<h2>Favicon scale</h2>
+<div class="row">
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#f7931a"/><polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/><path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="8" stroke-linecap="round"/><path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#141b24" stroke-width="8" stroke-linecap="round"/></svg>
+        <div class="label">64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#f7931a"/><polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/><path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="12" stroke-linecap="round"/><path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#141b24" stroke-width="12" stroke-linecap="round"/></svg>
+        <div class="label">32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#f7931a"/><polygon points="30,160 170,160 135,105 65,105" fill="#141b24"/><path d="M 30,160 L 170,160" stroke="#141b24" stroke-width="16" stroke-linecap="round"/><path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#141b24" stroke-width="16" stroke-linecap="round"/></svg>
+        <div class="label">16</div>
+      </div>
+    </div>
+    <h3>V2 Orange</h3>
+  </div>
+  <div class="card">
+    <div class="sizes">
+      <div>
+        <svg viewBox="0 0 200 200" width="64" height="64"><rect width="200" height="200" rx="20" fill="#141b24"/><polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/><path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="8" stroke-linecap="round"/><path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#f7931a" stroke-width="8" stroke-linecap="round"/></svg>
+        <div class="label">64</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="32" height="32"><rect width="200" height="200" rx="20" fill="#141b24"/><polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/><path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="12" stroke-linecap="round"/><path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#f7931a" stroke-width="12" stroke-linecap="round"/></svg>
+        <div class="label">32</div>
+      </div>
+      <div>
+        <svg viewBox="0 0 200 200" width="16" height="16"><rect width="200" height="200" rx="20" fill="#141b24"/><polygon points="30,160 170,160 135,105 65,105" fill="#f7931a"/><path d="M 30,160 L 170,160" stroke="#f7931a" stroke-width="16" stroke-linecap="round"/><path d="M 30,160 C 30,85 170,85 170,160" fill="none" stroke="#f7931a" stroke-width="16" stroke-linecap="round"/></svg>
+        <div class="label">16</div>
+      </div>
+    </div>
+    <h3>V2 Dark</h3>
+  </div>
+</div>
+
+</body>
+</html>

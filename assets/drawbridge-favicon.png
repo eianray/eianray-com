@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DrawBridge converts scanned construction PDFs into GIS data. Upload, place pages on a live map, digitize features, and export to GDB, Shapefile, GeoJSON, or KML. Free to try." />
+  <meta name="keywords" content="GIS digitizing, scanned drawings, construction PDF to GIS, as-built digitizing, ArcGIS, geodatabase, shapefile, utility mapping, water district GIS" />
+  <meta name="author" content="DrawBridge LLC" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://drawbridgegis.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://drawbridgegis.com/" />
+  <meta property="og:title" content="DrawBridge — Turn Scanned Drawings into GIS Data" />
+  <meta property="og:description" content="Upload a scanned construction PDF, place pages on a live map, digitize features, and export to GDB, Shapefile, GeoJSON, or KML. Free to try — no card required." />
+  <meta property="og:image" content="https://drawbridgegis.com/screenshots/step-9.00.40.png" />
+  <meta property="og:site_name" content="DrawBridge" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DrawBridge — Turn Scanned Drawings into GIS Data" />
+  <meta name="twitter:description" content="Upload a scanned construction PDF, digitize features on a live map, export to GDB or Shapefile. Free to try." />
+  <meta name="twitter:image" content="https://drawbridgegis.com/screenshots/step-9.00.40.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "DrawBridge",
+    "url": "https://drawbridgegis.com",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free to use — pay $1/page only when you export. No registration required."
+    },
+    "description": "DrawBridge converts scanned construction PDFs into GIS data. Upload, digitize, and export to GDB, Shapefile, GeoJSON, or KML.",
+    "screenshot": "https://drawbridgegis.com/screenshots/step-9.00.40.png",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DrawBridge LLC",
+      "url": "https://drawbridgegis.com"
+    }
+  }
+  </script>
+
+  <title>DrawBridge — Turn Scanned Construction Drawings into GIS Data</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f141a;
+      --surface: #141b24;
+      --border: #1e2a38;
+      --text: #e8edf2;
+      --muted: #6b7a8d;
+      --orange: #f7931a;
+      --blue: #00b4d8;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section { padding: 80px 32px; }
+    .section.alt { background: #0d1117; }
+    .label {
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    h1, h2, h3 { margin: 0; }
+    h2 { font-size: 36px; color: var(--white); }
+    p { margin: 0; color: var(--muted); }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 64px;
+      padding: 0 32px;
+      background: rgba(15, 20, 26, 0.9);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .brand { font-weight: 700; color: var(--white); font-size: 18px; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .ghost { color: var(--muted); font-weight: 500; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+    .btn.orange { background: var(--orange); color: var(--white); }
+    .btn.ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+
+    /* Hero */
+    .hero { padding: 100px 32px 80px; }
+    .hero h1 {
+      font-size: 52px;
+      line-height: 1.15;
+      color: var(--white);
+      max-width: 720px;
+      font-weight: 700;
+    }
+    .hero p.sub {
+      font-size: 20px;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--fg);
+      letter-spacing: 0.01em;
+    }
+    .hero-badge .badge-icon { font-size: 15px; }
+    .cta-row {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .cta-link { color: var(--muted); font-weight: 500; }
+    .hero-screenshot {
+      margin: 60px auto 0;
+      max-width: 900px;
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.55);
+    }
+
+    /* Demo Player */
+    .demo-player {
+      margin: 60px auto 0;
+      max-width: 900px;
+      width: 100%;
+      background: #141b24;
+      border: 1px solid #1e2a36;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+    }
+    .demo-step-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: #0f141a;
+      border-bottom: 1px solid #1e2a36;
+    }
+    .demo-step-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #f7931a;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .demo-step-counter { font-size: 11px; color: #445566; }
+    .demo-screenshot-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #0a0e14;
+      cursor: pointer;
+    }
+    .demo-screenshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top left;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+    .demo-screenshot-wrap img.fade { opacity: 0; }
+    .demo-click-hint {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(247,147,26,0.92);
+      color: #141b24;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      pointer-events: none;
+      animation: demoPulse 2s infinite;
+    }
+    .demo-click-hint.hidden { display: none; }
+    @keyframes demoPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.75; transform: scale(0.97); }
+    }
+    .demo-description {
+      padding: 16px 20px;
+      border-bottom: 1px solid #1e2a36;
+      min-height: 60px;
+    }
+    .demo-description h2 { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .demo-description p { font-size: 13px; color: #8899aa; line-height: 1.5; }
+    .demo-progress-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      background: #0f141a;
+    }
+    #demoDots { display: flex; gap: 8px; }
+    .demo-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #1e2a36; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .demo-dot.active { background: #f7931a; transform: scale(1.3); }
+    .demo-dot.done { background: #4a6a3a; }
+    .demo-nav-btns { margin-left: auto; display: flex; gap: 8px; }
+    .demo-nav-btn {
+      background: #1e2a36; border: none; color: #8899aa;
+      font-size: 12px; font-weight: 600; padding: 6px 14px;
+      border-radius: 6px; cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      font-family: inherit; letter-spacing: 0.3px;
+    }
+    .demo-nav-btn:hover { background: #263444; color: #fff; }
+    .demo-nav-btn.demo-primary { background: #f7931a; color: #141b24; }
+    .demo-nav-btn.demo-primary:hover { background: #e8841a; }
+    .demo-nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+    /* Problem stats */
+    .stats {
+      margin-top: 48px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      flex: 1 1 250px;
+    }
+    .stat-number {
+      font-size: 48px;
+      color: var(--orange);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .badge {
+      width: 28px;
+      height: 28px;
+      background: var(--orange);
+      color: var(--white);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .step-title { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+    .step-desc { color: var(--muted); font-size: 15px; }
+
+    /* Audience */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .audience-card { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+    .audience-card .icon { font-size: 32px; }
+    .audience-card h4 { margin: 10px 0 6px; color: var(--white); font-size: 16px; }
+    .audience-card p { font-size: 14px; }
+
+    /* Pricing */
+    .pricing-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 36px;
+      justify-content: center;
+    }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      min-width: 180px;
+      flex: 1 1 180px;
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .price-card .plan { font-weight: 700; color: var(--white); }
+    .price-card .pages { color: var(--muted); font-size: 14px; }
+    .price-card .price { font-size: 28px; font-weight: 700; color: var(--white); }
+    .price-card .meta { color: var(--muted); font-size: 13px; }
+    .badge-tag {
+      align-self: flex-start;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+    }
+    .price-card.pro {
+      border: 1px solid var(--orange);
+      position: relative;
+    }
+    .price-card.pro .btn.orange { width: 100%; }
+    .price-card .btn { width: 100%; margin-top: auto; }
+
+    /* FAQ */
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::before {
+      content: '▶';
+      color: var(--muted);
+      font-size: 12px;
+      transition: transform 0.2s ease;
+    }
+    details[open] summary::before { transform: rotate(90deg); }
+    details p { margin-top: 10px; }
+
+    /* Footer */
+    footer {
+      padding: 48px 32px;
+      background: #0a0d12;
+      border-top: 1px solid var(--border);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links { display: flex; gap: 16px; color: var(--muted); font-size: 13px; }
+    .footer-note { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .section, .hero { padding: 40px 20px; }
+      .hero h1 { font-size: 36px; }
+      .steps, .audience-grid { grid-template-columns: 1fr; }
+      .nav-actions .ghost { display: none; }
+      .stats { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">DrawBridge</div>
+      <div class="nav-actions">
+        <a class="ghost" href="/blog/">Blog</a>
+        <a class="ghost" href="https://app.drawbridgegis.com">Sign In</a>
+        <a class="btn orange" href="https://app.drawbridgegis.com">Try Free — No Card Required</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="label">A Utility for Utilities.</div>
+      <h1>Turn scanned drawings into GIS data — in minutes.</h1>
+      <p class="sub">DrawBridge converts construction PDFs into Esri File Geodatabases. Upload, align, digitize, export.</p>
+      <div class="hero-badges">
+        <span class="hero-badge"><span class="badge-icon">🚫</span> No GIS software licenses</span>
+        <span class="hero-badge"><span class="badge-icon">👶</span> Beginner-friendly</span>
+        <span class="hero-badge"><span class="badge-icon">⚡</span> Results in minutes</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn orange" href="https://app.drawbridgegis.com">Try Free — No Card Required</a>
+        <a class="cta-link" href="#how-it-works">See how it works →</a>
+      </div>
+      <!-- Embedded demo player -->
+      <div class="demo-player" id="demoPlayer">
+        <div class="demo-step-bar">
+          <span class="demo-step-label" id="demoStepLabel">Step 1</span>
+          <span class="demo-step-counter" id="demoStepCounter">1 of 3</span>
+        </div>
+        <div class="demo-screenshot-wrap" id="demoScreenshotWrap" onclick="demoNext()">
+          <img id="demoScreenshot" src="screenshots/step-8.52.18.png" alt="DrawBridge demo"/>
+          <div class="demo-click-hint" id="demoClickHint">Click to continue →</div>
+        </div>
+        <div class="demo-description">
+          <h2 id="demoDescTitle"></h2>
+          <p id="demoDescBody"></p>
+        </div>
+        <div class="demo-progress-bar">
+          <div id="demoDots"></div>
+          <div class="demo-nav-btns">
+            <button class="demo-nav-btn" id="demoPrevBtn" onclick="demoPrev()">← Back</button>
+            <button class="demo-nav-btn demo-primary" id="demoNextBtn" onclick="demoNext()">Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="label">The Problem</div>
+      <h2>Paper plans are still everywhere.</h2>
+      <p style="font-size:18px; max-width:700px; margin-top:12px;">Water districts, utilities, and municipalities manage billions of dollars of infrastructure documented on paper or scanned PDFs. Getting that data into GIS means hours of manual entry — tracing coordinates, building attribute tables, importing to ArcGIS. DrawBridge eliminates that work.</p>
+      <div class="stats">
+        <div class="card">
+          <div class="stat-number">10x</div>
+          <div>faster than manual entry</div>
+        </div>
+        <div class="card">
+          <div class="stat-number">4</div>
+          <div>export formats: GDB, SHP, GeoJSON, KML</div>
+        </div>
+        <div class="card">
+          <div class="stat-number">0</div>
+          <div>required GIS expertise to get started</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section alt">
+    <div class="container">
+      <div class="label">How It Works</div>
+      <h2>Four steps from PDF to GDB.</h2>
+      <div class="steps">
+        <div class="step-card">
+          <div class="badge">1</div>
+          <div class="step-title">Upload your PDF</div>
+          <div class="step-desc">Drag and drop any construction PDF. DrawBridge renders each page at high resolution.</div>
+        </div>
+        <div class="step-card">
+          <div class="badge">2</div>
+          <div class="step-title">Place pages on the map</div>
+          <div class="step-desc">Position and align your drawings over a real-world basemap. Rotate and scale to fit.</div>
+        </div>
+        <div class="step-card">
+          <div class="badge">3</div>
+          <div class="step-title">Digitize your features</div>
+          <div class="step-desc">Trace points, lines, and polygons directly on your drawings. Add labels to each feature.</div>
+        </div>
+        <div class="step-card">
+          <div class="badge">4</div>
+          <div class="step-title">Export and download</div>
+          <div class="step-desc">Download a ready-to-use Esri File Geodatabase (.gdb). Open in ArcGIS or QGIS immediately.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="label">Who It's For</div>
+      <h2>Built for the professionals who keep infrastructure running.</h2>
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="icon">🗺️</div>
+          <h4>GIS Technicians</h4>
+          <p>At water and sewer districts managing decades of as-built records.</p>
+        </div>
+        <div class="audience-card">
+          <div class="icon">🏗️</div>
+          <h4>Infrastructure Consultants</h4>
+          <p>Delivering digitized geodatabases to municipal clients faster.</p>
+        </div>
+        <div class="audience-card">
+          <div class="icon">🏛️</div>
+          <h4>Municipal GIS Departments</h4>
+          <p>Converting legacy paper archives into queryable spatial data.</p>
+        </div>
+        <div class="audience-card">
+          <div class="icon">📐</div>
+          <h4>Engineering Firms</h4>
+          <p>Bridging the gap between scanned plans and modern GIS workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section alt">
+    <div class="container">
+      <div class="label">Pricing</div>
+      <h2>Simple, prepaid credits.</h2>
+      <p style="margin-top:8px; color: var(--muted);">No subscription. No expiration. Buy what you need.</p>
+      <p style="margin-top:6px; color: var(--muted);">1 credit = 1 PDF page processed. Credits never expire.</p>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div class="badge-tag">Start here</div>
+          <div class="plan">Free to Try</div>
+          <div class="pages">Pay at Export</div>
+          <div class="price">$0</div>
+          <div class="meta">Free to use · $1/page at export · No registration required</div>
+          <a class="btn ghost" href="https://app.drawbridgegis.com">Get Started — Free</a>
+        </div>
+        <div class="price-card">
+          <div class="plan">Starter</div>
+          <div class="pages">15 pages</div>
+          <div class="price">$10</div>
+          <div class="meta">$0.67 / page</div>
+          <a class="btn ghost" href="https://app.drawbridgegis.com">Buy Credits</a>
+        </div>
+        <div class="price-card">
+          <div class="plan">Standard</div>
+          <div class="pages">40 pages</div>
+          <div class="price">$25</div>
+          <div class="meta">$0.63 / page</div>
+          <a class="btn ghost" href="https://app.drawbridgegis.com">Buy Credits</a>
+        </div>
+        <div class="price-card pro">
+          <div class="badge-tag">Most popular</div>
+          <div class="plan">Pro</div>
+          <div class="pages">150 pages</div>
+          <div class="price">$75</div>
+          <div class="meta">$0.50 / page</div>
+          <a class="btn orange" href="https://app.drawbridgegis.com">Buy Credits</a>
+        </div>
+        <div class="price-card">
+          <div class="plan">Studio</div>
+          <div class="pages">400 pages</div>
+          <div class="price">$150</div>
+          <div class="meta">$0.38 / page</div>
+          <a class="btn ghost" href="https://app.drawbridgegis.com">Buy Credits</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="label">Questions</div>
+      <h2>Questions</h2>
+      <div style="margin-top: 16px;">
+        <details>
+          <summary>What counts as one page?</summary>
+          <p>Each PDF page processed counts as one credit.</p>
+        </details>
+        <details>
+          <summary>Do credits expire?</summary>
+          <p>No. Credits never expire. Buy when you need them, use them when you're ready.</p>
+        </details>
+        <details>
+          <summary>What GIS formats can I export?</summary>
+          <p>Esri File Geodatabase (.gdb), Shapefile (.shp), GeoJSON, and KML.</p>
+        </details>
+        <details>
+          <summary>Do I need ArcGIS to use DrawBridge?</summary>
+          <p>No. DrawBridge runs in your browser. The exported formats are compatible with ArcGIS Pro, ArcGIS Online, QGIS, and any GIS software that reads standard formats.</p>
+        </details>
+        <details>
+          <summary>Is my data stored permanently?</summary>
+          <p>Session data is temporary. Sessions expire after 24 hours. Export and save your .gdb before closing.</p>
+        </details>
+        <details>
+          <summary>Does it work on tablet or mobile?</summary>
+          <p>DrawBridge is designed for desktop use. A large screen makes digitizing much easier.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt">
+    <div class="container">
+      <div class="label">Contact</div>
+      <h2>Get in touch</h2>
+      <p style="color:var(--muted);font-size:17px;margin:12px 0 36px;max-width:520px;">Questions about DrawBridge? We'll get back to you promptly.</p>
+      <form id="contact-form" style="max-width:520px;display:flex;flex-direction:column;gap:14px;">
+        <input type="text" name="name" placeholder="Your name" required
+          style="background:#0f141a;color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:15px;font-family:inherit;outline:none;">
+        <input type="email" name="email" placeholder="Your email" required
+          style="background:#0f141a;color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:15px;font-family:inherit;outline:none;">
+        <textarea name="message" placeholder="Your message" rows="5" required
+          style="background:#0f141a;color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-size:15px;font-family:inherit;outline:none;resize:vertical;"></textarea>
+        <button type="submit"
+          style="background:var(--accent);color:#fff;border:none;border-radius:8px;padding:13px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;align-self:flex-start;">Send Message</button>
+        <p id="form-result" style="font-size:14px;color:var(--muted);display:none;"></p>
+      </form>
+      <script>
+        const form = document.getElementById('contact-form');
+        const result = document.getElementById('form-result');
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          result.style.display = 'block';
+          result.textContent = 'Sending...';
+          try {
+            const res = await fetch('https://drawbridge-contact.eianray.workers.dev', { method:'POST', body: new FormData(form) });
+            const data = await res.json();
+            if (data.success) {
+              result.textContent = 'Message sent — thanks! We\'ll be in touch.';
+              result.style.color = '#00e676';
+              form.reset();
+            } else {
+              result.textContent = 'Something went wrong. Please try again.';
+              result.style.color = '#f38ba8';
+            }
+          } catch {
+            result.textContent = 'Something went wrong. Please try again.';
+            result.style.color = '#f38ba8';
+          }
+        });
+      </script>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="brand">DrawBridge</div>
+        <div class="footer-note">© 2026 DrawBridge LLC</div>
+      </div>
+      <div class="footer-links">
+        <a href="#contact">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+<script>
+const demoSteps = [
+  {
+    label: "Step 1 — Place & Align",
+    title: "Place pages on the map",
+    body: "Click a page to place it on the canvas. Adjust position, rotation, and opacity to align it with the underlying basemap.",
+    img: "screenshots/step-8.52.18.png"
+  },
+  {
+    label: "Step 2 — Create Layers",
+    title: "Create your GIS layers",
+    body: "Add named layers for each feature type — Water Main, Meters, Laterals, Valves. Choose Point, Line, or Polygon geometry.",
+    img: "screenshots/step-9.00.40.png"
+  },
+  {
+    label: "Step 3 — Export",
+    title: "Export to GDB, Shapefile, GeoJSON, or KML",
+    body: "Choose your format and download instantly. Open directly in ArcGIS Pro, QGIS, or any GIS platform. Your data, your tools.",
+    img: "screenshots/step-9.28.39.png"
+  }
+];
+
+let demoCurrent = 0;
+let demoTimer = null;
+
+function demoRender(idx) {
+  const step = demoSteps[idx];
+  const img = document.getElementById('demoScreenshot');
+  img.classList.add('fade');
+  setTimeout(() => {
+    img.src = step.img;
+    img.onload = () => img.classList.remove('fade');
+    img.onerror = () => img.classList.remove('fade');
+  }, 200);
+  document.getElementById('demoStepLabel').textContent = step.label;
+  document.getElementById('demoStepCounter').textContent = `${idx + 1} of ${demoSteps.length}`;
+  document.getElementById('demoDescTitle').textContent = step.title;
+  document.getElementById('demoDescBody').textContent = step.body;
+  document.getElementById('demoClickHint').classList.toggle('hidden', idx === demoSteps.length - 1);
+  document.getElementById('demoPrevBtn').disabled = idx === 0;
+  const nextBtn = document.getElementById('demoNextBtn');
+  if (idx === demoSteps.length - 1) {
+    nextBtn.textContent = 'Try it free →';
+    nextBtn.onclick = () => window.open('https://app.drawbridgegis.com', '_blank');
+  } else {
+    nextBtn.textContent = 'Next →';
+    nextBtn.onclick = demoNext;
+  }
+  const dotsEl = document.getElementById('demoDots');
+  dotsEl.innerHTML = '';
+  demoSteps.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'demo-dot' + (i === idx ? ' active' : i < idx ? ' done' : '');
+    d.onclick = () => { demoCurrent = i; demoRender(demoCurrent); };
+    dotsEl.appendChild(d);
+  });
+}
+
+function demoNext() {
+  demoCurrent = demoCurrent < demoSteps.length - 1 ? demoCurrent + 1 : 0;
+  demoRender(demoCurrent);
+}
+function demoPrev() {
+  if (demoCurrent > 0) { demoCurrent--; demoRender(demoCurrent); }
+}
+
+function demoStartAuto() {
+  demoStopAuto();
+  demoTimer = setInterval(() => { demoCurrent = demoCurrent < demoSteps.length - 1 ? demoCurrent + 1 : 0; demoRender(demoCurrent); }, 4000);
+}
+function demoStopAuto() {
+  if (demoTimer) { clearInterval(demoTimer); demoTimer = null; }
+}
+
+const demoPlayerEl = document.getElementById('demoPlayer');
+demoPlayerEl.addEventListener('mouseenter', demoStopAuto);
+demoPlayerEl.addEventListener('mouseleave', demoStartAuto);
+
+demoRender(0);
+demoStartAuto();
+</script>
+</body>
+</html>
