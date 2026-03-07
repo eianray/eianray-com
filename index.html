@@ -4,134 +4,142 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eian Ray — GIS Consultant</title>
-<meta name="description" content="Your GIS is slowing you down. Fixed-price GIS consulting for local government, utilities, and land management agencies. 18 years experience, GISP certified.">
+<meta name="description" content="Your GIS is slowing you down. GIS consulting, implementation, and cartographic services for local government, utilities, and land management agencies.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; transition: background-color 0.6s ease, color 0.6s ease; overflow-x: hidden; }
-a { text-decoration: none; transition: color 0.3s, border-color 0.3s; }
+body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.7; overflow-x: hidden; }
+a { text-decoration: none; transition: color 0.3s; }
 img { max-width: 100%; display: block; }
 
-/* ── Theme: Deep Ocean (default) ── */
+/* ── Theme: Deep Ocean (Blues — the Sound & ocean) ── */
 [data-theme="deep-ocean"] {
-  --bg: #0a0e1a;
-  --bg-secondary: #111827;
-  --bg-card: #1a2035;
-  --bg-card-hover: #1f2847;
-  --text: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --accent: #60a5fa;
-  --accent-dim: rgba(96, 165, 250, 0.15);
-  --accent-glow: rgba(96, 165, 250, 0.08);
-  --border: rgba(148, 163, 184, 0.1);
-  --hero-gradient: linear-gradient(135deg, #0a0e1a 0%, #1e293b 50%, #0f172a 100%);
-  --nav-bg: rgba(10, 14, 26, 0.92);
-  --heading: #f1f5f9;
-  --price-color: #60a5fa;
-  --quote-border: #60a5fa;
+  --bg: #060a14; --bg-secondary: #0c1222; --bg-card: #111a2e;
+  --bg-card-hover: #162040; --text: #e2e8f0; --text-secondary: #94a3b8;
+  --text-muted: #64748b; --accent: #60a5fa; --accent-bright: #93c5fd;
+  --accent-dim: rgba(96,165,250,0.12); --accent-glow: rgba(96,165,250,0.25);
+  --border: rgba(148,163,184,0.08); --nav-bg: rgba(6,10,20,0.85);
+  --heading: #f1f5f9; --price-color: #60a5fa; --hero-overlay: rgba(6,10,20,0.6);
+  --gradient-start: #0a0e1a; --gradient-mid: #0f1b35; --gradient-end: #060a14;
+  --glow-1: rgba(96,165,250,0.15); --glow-2: rgba(139,92,246,0.1);
+  --timeline-line: rgba(96,165,250,0.2); --timeline-dot: #60a5fa;
+  --timeline-dot-current: #34d399; --placeholder-bg: #0d1525; --placeholder-border: #1e2d4a;
+  --theme-dot: #60a5fa;
 }
 
-/* ── Theme: Pacific Slate ── */
-[data-theme="pacific-slate"] {
-  --bg: #f8fafc;
-  --bg-secondary: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f8fafc;
-  --text: #1e293b;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --accent: #2563eb;
-  --accent-dim: rgba(37, 99, 235, 0.1);
-  --accent-glow: rgba(37, 99, 235, 0.05);
-  --border: rgba(0, 0, 0, 0.08);
-  --hero-gradient: linear-gradient(135deg, #1e293b 0%, #334155 50%, #1e293b 100%);
-  --nav-bg: rgba(248, 250, 252, 0.92);
-  --heading: #0f172a;
-  --price-color: #2563eb;
-  --quote-border: #2563eb;
+/* ── Theme: Deep Forest (PNW evergreen — greens, bark, fog) ── */
+[data-theme="deep-forest"] {
+  --bg: #0e110d; --bg-secondary: #151a12; --bg-card: #1a2117;
+  --bg-card-hover: #222c1e; --text: #dddad0; --text-secondary: #a8a496;
+  --text-muted: #726e62; --accent: #7faa8b; --accent-bright: #a3c4ab;
+  --accent-dim: rgba(127,170,139,0.10); --accent-glow: rgba(127,170,139,0.18);
+  --border: rgba(168,164,150,0.08); --nav-bg: rgba(14,17,13,0.88);
+  --heading: #eae7de; --price-color: #7faa8b; --hero-overlay: rgba(14,17,13,0.6);
+  --gradient-start: #0e110d; --gradient-mid: #171e14; --gradient-end: #0e110d;
+  --glow-1: rgba(127,170,139,0.10); --glow-2: rgba(180,155,100,0.06);
+  --timeline-line: rgba(127,170,139,0.2); --timeline-dot: #7faa8b;
+  --timeline-dot-current: #d4a55a; --placeholder-bg: #151a12; --placeholder-border: #2e3528;
+  --theme-dot: #7faa8b;
+  --fog: rgba(200,198,190,0.04); --bark: #6b5d4a; --bark-dim: rgba(107,93,74,0.10);
+}
+/* Forest-specific card warmth */
+[data-theme="deep-forest"] .service-card,
+[data-theme="deep-forest"] .testimonial-card,
+[data-theme="deep-forest"] .project-card {
+  background: linear-gradient(160deg, var(--bg-card), rgba(42,36,28,0.3));
+}
+[data-theme="deep-forest"] .hero-bg {
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--glow-1), transparent),
+    radial-gradient(ellipse 50% 40% at 75% 70%, var(--glow-2), transparent),
+    radial-gradient(ellipse 40% 30% at 20% 50%, rgba(107,93,74,0.06), transparent),
+    linear-gradient(180deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
 }
 
-/* ── Theme: Warm Earth ── */
+/* ── Theme: Warm Earth (Browns & amber — Eastern Washington) ── */
 [data-theme="warm-earth"] {
-  --bg: #1a1410;
-  --bg-secondary: #231c15;
-  --bg-card: #2a2118;
-  --bg-card-hover: #332a1f;
-  --text: #e8ddd0;
-  --text-secondary: #b8a898;
-  --text-muted: #8a7a6a;
-  --accent: #d4915e;
-  --accent-dim: rgba(212, 145, 94, 0.15);
-  --accent-glow: rgba(212, 145, 94, 0.08);
-  --border: rgba(184, 168, 152, 0.1);
-  --hero-gradient: linear-gradient(135deg, #1a1410 0%, #2a2118 50%, #1a1410 100%);
-  --nav-bg: rgba(26, 20, 16, 0.92);
-  --heading: #f0e6da;
-  --price-color: #d4915e;
-  --quote-border: #d4915e;
+  --bg: #12100d; --bg-secondary: #1a1610; --bg-card: #231d15;
+  --bg-card-hover: #2e2519; --text: #e8ddd0; --text-secondary: #b8a898;
+  --text-muted: #8a7a6a; --accent: #d4915e; --accent-bright: #e5a873;
+  --accent-dim: rgba(212,145,94,0.12); --accent-glow: rgba(212,145,94,0.2);
+  --border: rgba(184,168,152,0.08); --nav-bg: rgba(18,16,13,0.9);
+  --heading: #f0e6da; --price-color: #d4915e; --hero-overlay: rgba(18,16,13,0.6);
+  --gradient-start: #12100d; --gradient-mid: #1a1610; --gradient-end: #12100d;
+  --glow-1: rgba(212,145,94,0.15); --glow-2: rgba(180,120,60,0.1);
+  --timeline-line: rgba(212,145,94,0.2); --timeline-dot: #d4915e;
+  --timeline-dot-current: #a3e635; --placeholder-bg: #1a1610; --placeholder-border: #3d3327;
+  --theme-dot: #d4915e;
 }
 
-body { background-color: var(--bg); color: var(--text); }
+body { background: var(--bg); color: var(--text); transition: background 0.6s, color 0.6s; }
+
+/* ── Animations ── */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes glow-pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 0.8; } }
+@keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+.fade-up { animation: fadeUp 0.8s ease both; }
+.fade-up-d1 { animation: fadeUp 0.8s 0.1s ease both; }
+.fade-up-d2 { animation: fadeUp 0.8s 0.2s ease both; }
+.fade-up-d3 { animation: fadeUp 0.8s 0.3s ease both; }
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ── Nav ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: var(--nav-bg);
-  backdrop-filter: blur(12px);
+  background: var(--nav-bg); backdrop-filter: blur(20px) saturate(1.8);
   border-bottom: 1px solid var(--border);
-  padding: 0 40px;
-  height: 64px;
+  padding: 0 48px; height: 64px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px; font-weight: 600;
-  color: var(--heading);
-  letter-spacing: -0.5px;
-}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--heading); letter-spacing: -0.5px; }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
-.nav-links a { color: var(--text-secondary); font-size: 14px; font-weight: 500; transition: color 0.3s; }
+.nav-links a { color: var(--text-secondary); font-size: 14px; font-weight: 500; }
 .nav-links a:hover { color: var(--accent); }
 .nav-dropdown { position: relative; }
 .nav-dropdown > a { cursor: pointer; display: flex; align-items: center; gap: 4px; }
 .nav-dropdown > a::after { content: '▾'; font-size: 10px; }
 .dropdown-menu {
-  position: absolute; top: 100%; left: 0; margin-top: 8px;
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 8px 0; min-width: 200px;
-  opacity: 0; visibility: hidden; transform: translateY(-4px);
-  transition: all 0.2s ease;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: absolute; top: calc(100% + 8px); left: -16px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+  padding: 8px 0; min-width: 240px;
+  opacity: 0; visibility: hidden; transform: translateY(-8px);
+  transition: all 0.25s ease;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
 }
 .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown-menu a { display: block; padding: 8px 16px; color: var(--text-secondary); font-size: 13px; }
+.dropdown-menu a { display: flex; align-items: center; gap: 12px; padding: 10px 20px; color: var(--text-secondary); font-size: 13px; font-weight: 500; }
 .dropdown-menu a:hover { background: var(--accent-dim); color: var(--accent); }
-
-/* Theme toggle */
-.theme-toggle {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
-  padding: 6px 10px; cursor: pointer; font-size: 14px;
-  color: var(--text-secondary); transition: all 0.3s;
-  display: flex; align-items: center; gap: 4px;
+.dropdown-menu a .dd-text span { display: block; font-size: 11px; color: var(--text-muted); margin-top: 2px; font-weight: 400; }
+.dropdown-logo {
+  width: 28px; height: 28px; border-radius: 6px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px; font-family: 'Inter', sans-serif;
+  overflow: hidden;
 }
-.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.dropdown-logo img { width: 100%; height: 100%; border-radius: 6px; object-fit: contain; }
+.dropdown-logo.db-logo { background: transparent; }
+.dropdown-logo.rm-logo { background: #111; border-radius: 6px; overflow: hidden; }
+.dropdown-logo.ma-logo { background: transparent; }
 
-/* Mobile nav */
+/* ── Theme picker dots ── */
+.theme-picker { display: flex; align-items: center; gap: 8px; }
+.theme-dot {
+  width: 16px; height: 16px; border-radius: 50%; cursor: pointer; border: 2px solid transparent;
+  transition: all 0.3s ease; position: relative;
+}
+.theme-dot:hover { transform: scale(1.2); }
+.theme-dot.active { border-color: var(--heading); box-shadow: 0 0 8px var(--accent-glow); }
+.theme-dot[data-theme="deep-ocean"] { background: #60a5fa; }
+.theme-dot[data-theme="deep-forest"] { background: #7faa8b; }
+.theme-dot[data-theme="warm-earth"] { background: #d4915e; }
+
 .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
-  .nav-links {
-    position: fixed; top: 64px; left: 0; right: 0;
-    background: var(--nav-bg); backdrop-filter: blur(12px);
-    flex-direction: column; padding: 20px; gap: 16px;
-    border-bottom: 1px solid var(--border);
-    transform: translateY(-100%); opacity: 0; visibility: hidden;
-    transition: all 0.3s;
-  }
+  .nav-links { position: fixed; top: 64px; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(20px); flex-direction: column; padding: 24px; gap: 20px; border-bottom: 1px solid var(--border); transform: translateY(-100%); opacity: 0; visibility: hidden; transition: all 0.3s; }
   .nav-links.open { transform: translateY(0); opacity: 1; visibility: visible; }
   .dropdown-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: transparent; border: none; padding-left: 16px; }
   nav { padding: 0 20px; }
@@ -139,232 +147,177 @@ nav {
 
 /* ── Hero ── */
 .hero {
-  min-height: 100vh;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center;
-  background: var(--hero-gradient);
-  padding: 120px 24px 80px;
-  position: relative;
+  min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; position: relative; overflow: hidden; padding: 120px 24px 80px;
 }
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--glow-1), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 70%, var(--glow-2), transparent),
+    radial-gradient(ellipse 50% 50% at 20% 80%, var(--glow-1), transparent),
+    linear-gradient(180deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+}
+.hero-orb { position: absolute; border-radius: 50%; filter: blur(80px); z-index: 0; animation: glow-pulse 6s ease-in-out infinite; }
+.hero-orb-1 { width: 400px; height: 400px; top: 10%; left: 10%; background: var(--glow-1); }
+.hero-orb-2 { width: 300px; height: 300px; bottom: 20%; right: 15%; background: var(--glow-2); animation-delay: 3s; }
+.hero-orb-3 { width: 200px; height: 200px; top: 40%; right: 30%; background: var(--glow-1); animation-delay: 1.5s; }
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-eyebrow { font-size: 13px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 24px;
-  letter-spacing: -1px;
+  font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 800; color: #fff; line-height: 1.05; margin-bottom: 28px; letter-spacing: -2px;
 }
-.hero p {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  color: rgba(255,255,255,0.7);
-  max-width: 600px;
-  margin-bottom: 40px;
-  line-height: 1.6;
-}
+.hero-accent { background: linear-gradient(135deg, var(--accent), var(--accent-bright)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero p { font-size: clamp(1.05rem, 2.5vw, 1.3rem); color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto 44px; line-height: 1.7; }
 .hero-cta {
-  display: inline-block;
-  padding: 16px 36px;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 18px 40px; font-weight: 700; font-size: 15px; letter-spacing: 0.5px;
+  border-radius: 12px; color: #fff; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--accent), var(--accent-bright));
+  box-shadow: 0 8px 32px var(--accent-glow); transition: transform 0.3s, box-shadow 0.3s;
 }
-.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+.hero-cta:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 12px 44px var(--accent-glow); }
+.hero-cta::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+  background-size: 200% 100%; animation: shimmer 3s ease-in-out infinite;
+}
 
-/* ── Section styles ── */
-section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: var(--heading);
-  text-align: center;
-  margin-bottom: 16px;
+/* ── Sections ── */
+section { padding: 120px 24px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); text-align: center; margin-bottom: 16px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3rem); color: var(--heading); text-align: center; margin-bottom: 16px; letter-spacing: -1px; }
+.section-subtitle { text-align: center; color: var(--text-secondary); font-size: 16px; max-width: 580px; margin: 0 auto 64px; line-height: 1.7; }
+.divider { width: 48px; height: 3px; border-radius: 2px; margin: 0 auto 48px; background: linear-gradient(90deg, var(--accent), var(--accent-bright)); }
+
+/* ── Projects row ── */
+.projects-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.project-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; transition: all 0.4s ease;
 }
-.section-subtitle {
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 16px;
-  max-width: 600px;
-  margin: 0 auto 60px;
+.project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); border-color: var(--accent); }
+.project-img-wrap {
+  width: 100%; height: 200px; overflow: hidden; position: relative;
+}
+.project-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.project-card:hover .project-img-wrap img { transform: scale(1.05); }
+.project-placeholder {
+  width: 100%; height: 200px;
+  background: var(--placeholder-bg); border-bottom: 1px solid var(--placeholder-border);
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+}
+.project-placeholder-text { font-size: 12px; color: var(--text-muted); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+.project-body { padding: 24px; }
+.project-name { font-size: 18px; font-weight: 700; color: var(--heading); margin-bottom: 8px; }
+.project-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px; }
+.project-link { font-size: 13px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; }
+.project-link:hover { text-decoration: underline; }
+@media (max-width: 768px) {
+  .projects-row { grid-template-columns: 1fr; }
 }
 
 /* ── Services ── */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
+.services-section-title {
+  font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--heading);
+  margin-bottom: 8px; margin-top: 48px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
 }
+.services-section-title:first-of-type { margin-top: 0; }
+.services-section-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-bottom: 16px; }
 .service-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 32px; transition: all 0.4s ease; position: relative; overflow: hidden;
 }
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--accent-glow);
-  border-color: var(--accent);
+.service-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
 }
-.service-name {
-  font-size: 17px; font-weight: 600; color: var(--heading); margin-bottom: 8px;
+.service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); border-color: var(--accent); }
+.service-card:hover::before { transform: scaleX(1); }
+.service-card.placeholder-card {
+  border-style: dashed; border-color: var(--placeholder-border);
+  display: flex; align-items: center; justify-content: center; min-height: 180px;
 }
-.service-desc {
-  font-size: 14px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6;
-}
-.service-price {
-  font-size: 22px; font-weight: 700; color: var(--price-color);
-  font-family: 'Playfair Display', serif;
-}
-.service-price-sub {
-  font-size: 13px; color: var(--text-muted); font-weight: 400;
-  font-family: 'Inter', sans-serif;
-}
+.service-card.placeholder-card:hover { transform: none; box-shadow: none; }
+.service-card.placeholder-card::before { display: none; }
+.placeholder-inner { text-align: center; color: var(--text-muted); }
+.placeholder-inner .text { font-size: 13px; font-weight: 500; }
+.service-name { font-size: 17px; font-weight: 700; color: var(--heading); margin-bottom: 10px; }
+.service-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.6; }
+.service-price { font-size: 24px; font-weight: 800; color: var(--price-color); font-family: 'Playfair Display', serif; }
+.service-price-sub { font-size: 13px; color: var(--text-muted); font-weight: 400; font-family: 'Inter', sans-serif; }
 
 /* ── Testimonials ── */
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 24px;
-}
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
 .testimonial-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--quote-border);
-  border-radius: 12px;
-  padding: 28px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+  padding: 32px; position: relative;
 }
-.testimonial-quote {
-  font-size: 15px; color: var(--text); line-height: 1.7;
-  font-style: italic; margin-bottom: 16px;
+.testimonial-card::before {
+  content: '"'; position: absolute; top: 16px; left: 24px;
+  font-family: 'Playfair Display', serif; font-size: 64px; color: var(--accent);
+  opacity: 0.15; line-height: 1;
 }
-.testimonial-source {
-  font-size: 13px; color: var(--text-muted); font-weight: 600;
-}
+.testimonial-quote { font-size: 15px; color: var(--text); line-height: 1.8; font-style: italic; margin-bottom: 20px; padding-top: 8px; }
+.testimonial-source { font-size: 13px; color: var(--accent); font-weight: 600; }
 
-/* ── Projects ── */
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 28px;
+/* ── Timeline ── */
+.timeline { position: relative; max-width: 700px; margin: 0 auto; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: var(--timeline-line); }
+.timeline-item { padding-left: 36px; margin-bottom: 36px; position: relative; }
+.timeline-item::before {
+  content: ''; position: absolute; left: 2px; top: 6px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 3px solid var(--timeline-dot); transition: all 0.3s;
 }
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px var(--accent-glow);
-}
-.project-img {
-  width: 100%; height: 200px; object-fit: cover;
-  background: var(--bg-secondary);
-}
-.project-body { padding: 24px; }
-.project-name {
-  font-size: 18px; font-weight: 600; color: var(--heading); margin-bottom: 8px;
-}
-.project-desc {
-  font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 12px;
-}
-.project-link {
-  font-size: 13px; font-weight: 600; color: var(--accent);
-  display: inline-flex; align-items: center; gap: 4px;
-}
-.project-link:hover { text-decoration: underline; }
-
-/* Atlas cards (no image) */
-.atlas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-.atlas-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  transition: transform 0.3s, border-color 0.3s;
-}
-.atlas-card:hover { transform: translateY(-2px); border-color: var(--accent); }
-.atlas-icon { font-size: 32px; margin-bottom: 12px; }
-.atlas-name { font-size: 16px; font-weight: 600; color: var(--heading); margin-bottom: 6px; }
-.atlas-desc { font-size: 13px; color: var(--text-secondary); }
+.timeline-item.current::before { border-color: var(--timeline-dot-current); box-shadow: 0 0 12px var(--timeline-dot-current); }
+.timeline-dates { font-size: 12px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.5px; margin-bottom: 4px; }
+.timeline-role { font-size: 17px; font-weight: 700; color: var(--heading); margin-bottom: 2px; }
+.timeline-org { font-size: 14px; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+.timeline-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
 
 /* ── About ── */
-.about-content {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-}
-.about-content p {
-  font-size: 16px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-.about-badges {
-  display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
-  margin-top: 32px;
-}
+.about-content { max-width: 700px; margin: 0 auto; text-align: center; }
+.about-content p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 20px; }
+.about-badges { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 36px; }
 .badge {
-  background: var(--accent-dim);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--accent);
+  background: var(--accent-dim); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 22px; font-size: 13px; font-weight: 700; color: var(--accent); transition: all 0.3s;
 }
+.badge:hover { border-color: var(--accent); box-shadow: 0 0 20px var(--accent-glow); transform: translateY(-2px); }
 
 /* ── Contact ── */
 .contact-box {
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: center;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 48px 40px;
+  max-width: 520px; margin: 0 auto; text-align: center;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+  padding: 56px 48px; position: relative; overflow: hidden;
 }
-.contact-email {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--accent);
-  display: block;
-  margin-bottom: 16px;
+.contact-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top, var(--accent-dim), transparent 70%); pointer-events: none; }
+.contact-email { font-size: 26px; font-weight: 700; color: var(--accent); display: block; margin-bottom: 16px; position: relative; }
+.contact-email:hover { color: var(--accent-bright); }
+.contact-note { font-size: 14px; color: var(--text-muted); position: relative; }
+
+/* ── Photo placeholder ── */
+.photo-placeholder {
+  width: 100%; height: 320px;
+  background: var(--placeholder-bg); border: 2px dashed var(--placeholder-border); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 12px;
+  margin-bottom: 32px;
 }
-.contact-email:hover { text-decoration: underline; }
-.contact-note {
-  font-size: 14px;
-  color: var(--text-muted);
-}
+.photo-placeholder-text { font-size: 13px; color: var(--text-muted); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
 
 /* ── Footer ── */
-footer {
-  text-align: center;
-  padding: 40px 24px;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-/* ── Placeholder notice ── */
-.placeholder-notice {
-  text-align: center;
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 12px;
-  font-style: italic;
+footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 13px; }
+.placeholder-notice { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 16px; font-style: italic; }
+@media (max-width: 768px) {
+  section { padding: 80px 20px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .hero-orb { display: none; }
 }
 </style>
 </head>
@@ -373,115 +326,174 @@ footer {
 <!-- ── Nav ── -->
 <nav>
   <a href="#" class="nav-logo">Eian Ray</a>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
     <li class="nav-dropdown">
       <a href="#projects">Projects</a>
       <div class="dropdown-menu">
-        <a href="#project-redmapper">RedMapper</a>
-        <a href="#project-drawbridge">DrawBridge</a>
-        <a href="#project-panamera">Team Panamera</a>
-        <a href="#project-atlases">Planetary Atlases</a>
+        <a href="https://drawbridgegis.com" target="_blank">
+          <span class="dropdown-logo db-logo"><img src="assets/drawbridge-favicon-a.svg" alt="DrawBridge" width="28" height="28"></span>
+          <span class="dd-text">DrawBridge<span>PDF-to-GIS as-built digitizer</span></span>
+        </a>
+        <a href="https://nodeapi.ai" target="_blank">
+          <span class="dropdown-logo ma-logo"><svg width="28" height="28" viewBox="0 0 200 200" fill="none"><rect width="200" height="200" rx="20" fill="#8b2942"/><g stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M50 140L50 60L100 100L150 60L150 140"/></g><line x1="100" y1="54" x2="100" y2="156" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.3" stroke-dasharray="7 12"/><circle cx="100" cy="40" r="10" fill="#fff" opacity="0.6"/></svg></span>
+          <span class="dd-text">Meridian API<span>Geospatial API &amp; MCP server</span></span>
+        </a>
+        <a href="https://www.redmapper.com" target="_blank">
+          <span class="dropdown-logo rm-logo"><img src="assets/redmapper-favicon.png" alt="R" width="28" height="28"></span>
+          <span class="dd-text">RedMapper<span>Planetary atlas &amp; web mapping</span></span>
+        </a>
       </div>
     </li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
     <li>
-      <button class="theme-toggle" onclick="cycleTheme()" title="Switch color theme">
-        <span id="theme-icon">🌊</span>
-      </button>
+      <div class="theme-picker">
+        <div class="theme-dot active" data-theme="deep-ocean" onclick="setTheme('deep-ocean')" title="Deep Ocean"></div>
+        <div class="theme-dot" data-theme="deep-forest" onclick="setTheme('deep-forest')" title="Deep Forest"></div>
+        <div class="theme-dot" data-theme="warm-earth" onclick="setTheme('warm-earth')" title="Warm Earth"></div>
+      </div>
     </li>
   </ul>
 </nav>
 
 <!-- ── Hero ── -->
 <section class="hero" id="top">
-  <h1>Your GIS Is Slowing You Down.</h1>
-  <p>Bad data, outdated maps, and systems nobody knows how to use cost your team time every day. I fix that.</p>
-  <a href="#services" class="hero-cta">See What I Offer</a>
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">GIS Consulting &amp; Implementation</div>
+    <h1 class="fade-up-d1">Your GIS Is<br><span class="hero-accent">Slowing You Down.</span></h1>
+    <p class="fade-up-d2">Bad data, outdated maps, and systems nobody knows how to use cost your team time every day. I fix that.</p>
+    <a href="#services" class="hero-cta fade-up-d3">See What I Offer &rarr;</a>
+  </div>
 </section>
 
-<!-- ── Services ── -->
-<section id="services">
-  <h2 class="section-title">Services &amp; Pricing</h2>
-  <p class="section-subtitle">Fixed-price packages designed to fit within your budget authority — no board approval needed for most services.</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-name">GIS Needs Assessment &amp; Report</div>
-      <div class="service-desc">Find out exactly what's broken and what to fix first. A comprehensive review of your current GIS capabilities, gaps, and a prioritized action plan.</div>
-      <div class="service-price">$1,200</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">System Health Check &amp; Report</div>
-      <div class="service-desc">A full audit of your current GIS setup with a written action plan. Licensing, data integrity, workflows, and performance — all reviewed.</div>
-      <div class="service-price">$800</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">ArcGIS Online Setup</div>
-      <div class="service-desc">Get your org configured, licensed, and ready to use. Users, groups, basemaps, and sharing — done right from the start.</div>
-      <div class="service-price">$1,500</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Web Map Build</div>
-      <div class="service-desc">A clean, functional web map your whole team can actually use. Configured with your data, your branding, your workflows.</div>
-      <div class="service-price">$1,000</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Field App Setup</div>
-      <div class="service-desc">Survey123 or Field Maps configured for your workflows. Forms, offline maps, and deployment — ready for the field.</div>
-      <div class="service-price">$750</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Half-Day Training</div>
-      <div class="service-desc">Get your staff up to speed fast. Hands-on, practical training tailored to your tools and your data.</div>
-      <div class="service-price">$600</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Annual System Review</div>
-      <div class="service-desc">Yearly checkup to keep your GIS healthy. Licensing audit, data review, performance check, and recommendations.</div>
-      <div class="service-price">$1,800</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Backup Configuration</div>
-      <div class="service-desc">So you never lose your data. Automated backup setup for your ArcGIS Online content, hosted layers, and critical datasets.</div>
-      <div class="service-price">$500 <span class="service-price-sub">setup + $75/mo</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Data Audit &amp; Cleanup</div>
-      <div class="service-desc">Find duplicates, fix projections, standardize your layers. Get your data into shape so everything downstream works.</div>
-      <div class="service-price">$950</div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">As-Built Conversion</div>
-      <div class="service-desc">Turn paper or CAD as-builts into GIS-ready data. Georeferenced, attributed, and ready for your system.</div>
-      <div class="service-price">$300 <span class="service-price-sub">per dataset</span></div>
-    </div>
-    <div class="service-card">
-      <div class="service-name">Custom / T&amp;M Work</div>
-      <div class="service-desc">Bigger projects, integrations, or anything that doesn't fit a box. Let's talk about what you need.</div>
-      <div class="service-price" style="font-size:16px;">Contact for quote</div>
+<!-- ── Projects ── -->
+<section id="projects" style="background: var(--bg-secondary);">
+  <div class="section-inner">
+    <span class="section-label reveal">Projects</span>
+    <h2 class="section-title reveal">Things I've Built</h2>
+    <div class="divider reveal"></div>
+    <div class="projects-row">
+
+      <div class="project-card reveal">
+        <div class="project-img-wrap" style="background:#f7931a; display:flex; align-items:center; justify-content:center;">
+          <img src="assets/drawbridge-favicon-a.svg" alt="DrawBridge logo" style="width:85px; height:85px; object-fit:contain; border:2px solid #000; border-radius:6px;" loading="lazy">
+        </div>
+        <div class="project-body">
+          <div class="project-name">DrawBridge</div>
+          <div class="project-desc">A PDF-to-GIS georeferencing tool for digitizing as-built drawings. Upload construction PDFs, align them to a basemap, trace features, and export ready-to-use geodatabases — no desktop GIS required.</div>
+          <a href="https://drawbridgegis.com" target="_blank" class="project-link">drawbridgegis.com &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img-wrap" style="background:#8b2942; display:flex; align-items:center; justify-content:center;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="120" height="120" style="flex-shrink:0;">
+            <g fill="none" stroke="#ffffff" stroke-width="6.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M 50 140 L 50 60 L 100 100 L 150 60 L 150 140"/>
+            </g>
+            <line x1="100" y1="50" x2="100" y2="156" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.3" stroke-dasharray="5 8"/>
+            <circle cx="100" cy="40" r="6" fill="#ffffff" opacity="0.5"/>
+            <text x="100" y="186" text-anchor="middle" fill="#ffffff" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="3" opacity="0.6">MERIDIAN</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <div class="project-name">Meridian API</div>
+          <div class="project-desc">A geospatial API and MCP server for AI-powered GIS workflows. Validate, repair, reproject, convert, buffer, and dissolve spatial data — all via REST or model context protocol.</div>
+          <a href="https://nodeapi.ai" target="_blank" class="project-link">nodeapi.ai &rarr;</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-img-wrap" style="background:#000; display:flex; align-items:center; justify-content:center;">
+          <img src="assets/redmapper-favicon.png" alt="RedMapper logo" style="width:100px; height:auto; object-fit:contain;" loading="lazy">
+        </div>
+        <div class="project-body">
+          <div class="project-name">RedMapper</div>
+          <div class="project-desc">A planetary atlas and web mapping service. Interactive 3D portals for Mars, Mercury, Venus, and the Moon — exploring other worlds, one map at a time.</div>
+          <a href="https://www.redmapper.com" target="_blank" class="project-link">redmapper.com &rarr;</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ── Who I've Helped ── -->
-<!-- PLACEHOLDER: Replace these with real testimonials when available -->
-<section id="testimonials" style="background: var(--bg-secondary); padding: 100px 24px;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <h2 class="section-title">Who I've Helped</h2>
-    <p class="section-subtitle">Agencies and districts that needed GIS to work better — and got it.</p>
+<!-- ── Services ── -->
+<section id="services">
+  <div class="section-inner">
+    <span class="section-label reveal">Services</span>
+    <h2 class="section-title reveal">Services &amp; Pricing</h2>
+    <div class="divider reveal"></div>
+
+    <!-- Time & Materials -->
+    <h3 class="services-section-title reveal">Time &amp; Materials</h3>
+    <p class="services-section-desc reveal">Scoped engagements billed on effort. Ideal for ongoing support, advisory, and cartographic work.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-name">General Service Agreements</div>
+        <div class="service-desc">Ongoing GIS support, system administration, troubleshooting, and advisory services. Flexible hours, monthly or quarterly retainer options available.</div>
+        <div class="service-price">$125<span class="service-price-sub">/hr</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Cartographic Services</div>
+        <div class="service-desc">Custom map production, atlas design, basemap creation, and print-ready cartography. From utility maps to publication-quality work.</div>
+        <div class="service-price">$125<span class="service-price-sub">/hr</span></div>
+      </div>
+    </div>
+
+    <!-- Fixed Fee -->
+    <h3 class="services-section-title reveal">Fixed Fee</h3>
+    <p class="services-section-desc reveal">Defined scope, fixed price. No surprises.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-name">GIS Needs Assessment &amp; Implementation</div>
+        <div class="service-desc">End-to-end: evaluate your organization's GIS capabilities, identify gaps, build a roadmap, and execute the plan. From first interview to go-live.</div>
+        <div class="service-price" style="font-size:16px;">Flat rate — contact for quote</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">As-Built to GIS Conversion</div>
+        <div class="service-desc">Turn paper or CAD as-builts into GIS-ready data. Georeferenced, attributed, and formatted for your system. Per-page pricing keeps it predictable.</div>
+        <div class="service-price">$15<span class="service-price-sub">/page</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-name">Scheduled AGOL Backups</div>
+        <div class="service-desc">Automated backup of your ArcGIS Online content — hosted layers, web maps, and critical datasets. Runs on schedule so you never lose your work.</div>
+        <div class="service-price">$40<span class="service-price-sub">/backup</span></div>
+      </div>
+      <div class="service-card placeholder-card reveal">
+        <div class="placeholder-inner">
+          <div class="text">More coming soon</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ── -->
+<section id="testimonials" style="background: var(--bg-secondary);">
+  <div class="section-inner">
+    <span class="section-label reveal">Clients</span>
+    <h2 class="section-title reveal">Who I've Helped</h2>
+    <div class="divider reveal"></div>
+    <p class="section-subtitle reveal">Agencies and districts that needed GIS to work better — and got it.</p>
     <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"We had ten years of data scattered across drives nobody could find. Eian cleaned it up, migrated everything to ArcGIS Online, and trained our crew in half a day. We actually use our GIS now."</div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">We had ten years of data scattered across drives nobody could find. Eian cleaned it up, migrated everything to ArcGIS Online, and trained our crew in half a day. We actually use our GIS now.</div>
         <div class="testimonial-source">— County Public Works Department</div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"Our field crews were still using paper forms. He set up Field Maps, got it working offline, and showed the guys how to use it. Saved us hours every week on data entry alone."</div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">Our field crews were still using paper forms. He set up Field Maps, got it working offline, and showed the guys how to use it. Saved us hours every week on data entry alone.</div>
         <div class="testimonial-source">— Regional Water District</div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"We needed a clear picture of where our GIS program stood and what to prioritize. The needs assessment gave our director exactly what she needed to justify the budget."</div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-quote">We needed a clear picture of where our GIS program stood and what to prioritize. The needs assessment gave our director exactly what she needed to justify the budget.</div>
         <div class="testimonial-source">— Federal Land Management Agency</div>
       </div>
     </div>
@@ -489,128 +501,108 @@ footer {
   </div>
 </section>
 
-<!-- ── Projects ── -->
-<section id="projects">
-  <h2 class="section-title">Projects</h2>
-  <p class="section-subtitle">Products, tools, and expeditions — things I've built and places I've been.</p>
-  <div class="projects-grid">
-
-    <div class="project-card" id="project-redmapper">
-      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/5fcc4b6dc190381d6d591991/1644118641581-3AK7W4VGQY5K0Q2CV4OX/unsplash-image-RpDA3uYkJWM.jpg" alt="RedMapper star field" loading="lazy">
-      <div class="project-body">
-        <div class="project-name">RedMapper</div>
-        <div class="project-desc">A planetary atlas and web mapping service bringing Mars, Mercury, Venus, and the Moon to life. Interactive 3D portals, comprehensive topographic catalogs, and custom cartographic baselayers — exploring other worlds, one map at a time.</div>
-        <a href="https://www.redmapper.com" target="_blank" class="project-link">Visit RedMapper →</a>
+<!-- ── Experience ── -->
+<section id="experience">
+  <div class="section-inner">
+    <span class="section-label reveal">Experience</span>
+    <h2 class="section-title reveal">Where I've Worked</h2>
+    <div class="divider reveal"></div>
+    <div class="timeline reveal">
+      <div class="timeline-item current">
+        <div class="timeline-dates">Jan 2026 — Present</div>
+        <div class="timeline-role">Principal Consultant</div>
+        <div class="timeline-org">Eian Ray Consulting · Pacific Northwest</div>
+        <div class="timeline-desc">Independent GIS consulting practice. Needs assessments, system implementation, cloud GIS, cartography, and product development for local government, utilities, and land management agencies.</div>
       </div>
-    </div>
-
-    <div class="project-card" id="project-drawbridge">
-      <img class="project-img" src="https://drawbridgegis.com/screenshots/step-8.52.18.png" alt="DrawBridge GIS interface" loading="lazy">
-      <div class="project-body">
-        <div class="project-name">DrawBridge</div>
-        <div class="project-desc">A GIS-to-PDF drawing generator built for engineers and planners. Upload shapefiles, configure layouts, and produce professional map sheets — no desktop GIS required. SaaS product with Solana-based payment integration.</div>
-        <a href="https://drawbridgegis.com" target="_blank" class="project-link">Visit DrawBridge →</a>
+      <div class="timeline-item">
+        <div class="timeline-dates">Jun 2021 — Present · Contract</div>
+        <div class="timeline-role">GIS Lead</div>
+        <div class="timeline-org">PACE Engineers, Inc. · Kirkland, WA</div>
+        <div class="timeline-desc">Leading GIS department delivering client solutions across the full project lifecycle. Agentic AI for GIS, system implementation, web mapping apps, data management, cartography, needs assessments, and client training. Previously full-time (Jan 2019–Jun 2021).</div>
       </div>
-    </div>
-
-    <div class="project-card" id="project-panamera">
-      <img class="project-img" src="https://images.squarespace-cdn.com/content/v1/58f2e40f8419c273493308c8/1496349193714-Z2VATSOKMT9RHGD2B227/BackgroundPhoto1.JPG?format=1500w" alt="Team Panamera expedition" loading="lazy">
-      <div class="project-body">
-        <div class="project-name">Team Panamera</div>
-        <div class="project-desc">An overlanding expedition across the Americas documenting landscapes, communities, and geography. Adventure meets cartography — mapping the Pan-American route from the driver's seat.</div>
-        <a href="https://www.teampanamera.com" target="_blank" class="project-link">Visit Team Panamera →</a>
+      <div class="timeline-item">
+        <div class="timeline-dates">Aug 2016 — Feb 2019</div>
+        <div class="timeline-role">GIS Director</div>
+        <div class="timeline-org">Columbia County, WA · Dayton, WA</div>
+        <div class="timeline-desc">Directed countywide GIS strategy. Led historical ROW digitization, NG911 GIS implementation, pavement management inventory, seasonal traffic counts. UAV pilot for aerial imagery and bridge inspections. Census Bureau liaison. Managed ArcGIS across five county departments.</div>
       </div>
-    </div>
-  </div>
-
-  <!-- Atlases -->
-  <div id="project-atlases">
-    <h3 style="text-align:center; color:var(--heading); font-family:'Playfair Display',serif; font-size:1.5rem; margin-top:60px; margin-bottom:8px;">Planetary Atlases</h3>
-    <p style="text-align:center; color:var(--text-secondary); font-size:14px; margin-bottom:32px;">Published cartographic atlases in the tradition of Earth atlases — modern imagery, pristine aesthetics, and a sense of closeness to other worlds.</p>
-    <div class="atlas-grid">
-      <div class="atlas-card">
-        <div class="atlas-icon">🔴</div>
-        <div class="atlas-name">Mars Atlas</div>
-        <div class="atlas-desc">Full-bleed Viking imagery with modern cartographic detail. Named features, landing sites, and topographic context.</div>
+      <div class="timeline-item">
+        <div class="timeline-dates">May 2012 — Aug 2016</div>
+        <div class="timeline-role">GIS Specialist</div>
+        <div class="timeline-org">Makah Tribe · Neah Bay, WA</div>
+        <div class="timeline-desc">GIS for tribal resource management — realty, land use, natural resources, wildlife monitoring, hydrology, and municipal planning. Project lead for the Makah Solar Farm Feasibility Study and Makah Marine Spatial Plan. Coordinated land survey contracts.</div>
       </div>
-      <div class="atlas-card">
-        <div class="atlas-icon">🌕</div>
-        <div class="atlas-name">Moon Atlas</div>
-        <div class="atlas-desc">Over 9,000 named places, 47 human landing sites, and the dark side of the moon — all mapped.</div>
-      </div>
-      <div class="atlas-card">
-        <div class="atlas-icon">⚫</div>
-        <div class="atlas-name">Mercury Atlas</div>
-        <div class="atlas-desc">High-resolution Messenger satellite imagery with geological overlays and the only human artifact on the surface.</div>
+      <div class="timeline-item">
+        <div class="timeline-dates">2008 — 2012</div>
+        <div class="timeline-role">GIS Specialist</div>
+        <div class="timeline-org">Bureau of Land Management · Vale, OR</div>
+        <div class="timeline-desc">GIS support for federal land management operations in the Vale District. Data management, cartography, spatial analysis, and field data collection in support of resource management and land use planning.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ── About ── -->
-<section id="about" style="background: var(--bg-secondary); padding: 100px 24px;">
-  <div class="about-content">
-    <h2 class="section-title">About</h2>
-    <p style="margin-top: 24px;">
-      I'm a GIS consultant with 18 years of experience in cartography, system implementation, cloud GIS, data analysis, and product design. I've worked with local government, utilities, federal agencies, and startups — anywhere spatial data needs to actually work for the people using it.
-    </p>
-    <p>
-      I'm GISP certified, remote-friendly, and based in the Pacific Northwest. My background spans Esri platforms, open-source GIS, web mapping, and building products from scratch. I've presented at Esri UC plenary (2021) and won first place at the International Cartographic Association (2016).
-    </p>
-    <p>
-      I keep things straightforward: fixed prices, clear deliverables, and work that speaks for itself.
-    </p>
-    <div class="about-badges">
-      <div class="badge">GISP Certified</div>
-      <div class="badge">18 Years Experience</div>
-      <div class="badge">Remote-Friendly</div>
-      <div class="badge">Pacific Northwest</div>
+<section id="about" style="background: var(--bg-secondary);">
+  <div class="section-inner">
+    <span class="section-label reveal">About</span>
+    <h2 class="section-title reveal">Who I Am</h2>
+    <div class="divider reveal"></div>
+    <div class="about-content reveal">
+      <div class="photo-placeholder">
+        <div class="photo-placeholder-text">Headshot coming soon</div>
+      </div>
+      <p>I'm a GIS consultant with 18 years of experience in cartography, system implementation, cloud GIS, data analysis, and product design. I've worked with local government, utilities, federal agencies, and startups — anywhere spatial data needs to actually work for the people using it.</p>
+      <p>I'm GISP certified, remote-friendly, and based in the Pacific Northwest. My background spans Esri platforms, open-source GIS, web mapping, and building products from scratch. I've presented at Esri UC plenary (2021) and won first place at the International Cartographic Association (2016).</p>
+      <p>I keep things straightforward: clear deliverables, honest pricing, and work that speaks for itself.</p>
+      <div class="about-badges">
+        <div class="badge">GISP Certified</div>
+        <div class="badge">18 Years Experience</div>
+        <div class="badge">Esri UC Plenary 2021</div>
+        <div class="badge">ICA 1st Place 2016</div>
+        <div class="badge">Remote-Friendly</div>
+        <div class="badge">Pacific Northwest</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ── Contact ── -->
 <section id="contact">
-  <h2 class="section-title">Get In Touch</h2>
-  <p class="section-subtitle">Have a project in mind, or just want to talk through your GIS situation? Reach out.</p>
-  <div class="contact-box">
-    <a href="mailto:hello@eianray.com" class="contact-email">hello@eianray.com</a>
-    <p class="contact-note">I typically respond within 1 business day.</p>
+  <div class="section-inner">
+    <span class="section-label reveal">Contact</span>
+    <h2 class="section-title reveal">Get In Touch</h2>
+    <div class="divider reveal"></div>
+    <p class="section-subtitle reveal">Have a project in mind, or just want to talk through your GIS situation? Reach out.</p>
+    <div class="contact-box reveal">
+      <a href="mailto:me@eianray.com" class="contact-email">me@eianray.com</a>
+      <p class="contact-note">I typically respond within 1 business day.</p>
+    </div>
   </div>
 </section>
 
-<!-- ── Footer ── -->
 <footer>
   <p>&copy; 2026 Eian Ray. All rights reserved.</p>
 </footer>
 
 <script>
-const themes = ['deep-ocean', 'pacific-slate', 'warm-earth'];
-const themeIcons = { 'deep-ocean': '🌊', 'pacific-slate': '🪨', 'warm-earth': '🌄' };
-
-function cycleTheme() {
-  const html = document.documentElement;
-  const current = html.getAttribute('data-theme');
-  const idx = themes.indexOf(current);
-  const next = themes[(idx + 1) % themes.length];
-  html.setAttribute('data-theme', next);
-  document.getElementById('theme-icon').textContent = themeIcons[next];
-  localStorage.setItem('eianray-theme', next);
-}
-
-// Restore saved theme
-const saved = localStorage.getItem('eianray-theme');
-if (saved && themes.includes(saved)) {
-  document.documentElement.setAttribute('data-theme', saved);
-  document.getElementById('theme-icon').textContent = themeIcons[saved];
-}
-
-// Close mobile menu on link click
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.remove('open');
+const themes = ['deep-ocean', 'deep-forest', 'warm-earth'];
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('eianray-theme', theme);
+  document.querySelectorAll('.theme-dot').forEach(d => {
+    d.classList.toggle('active', d.getAttribute('data-theme') === theme);
   });
+}
+const saved = localStorage.getItem('eianray-theme');
+if (saved && themes.includes(saved)) { setTheme(saved); }
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.querySelector('.nav-links').classList.remove('open'));
 });
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
